@@ -25,6 +25,8 @@ const handleSubmit = async (e) =>{
     e.preventDefault()
 
     let bodyObj = {
+        firstName: document.getElementById('register-firstName').value,
+        lastName: document.getElementById('register-lastName').value,
         username: document.getElementById('register-username').value,
         password: document.getElementById('register-password').value
     }
