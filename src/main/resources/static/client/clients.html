@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./client.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400&display=swap" rel="stylesheet">
+    <title>PurrfectHealth - Clients</title>
+</head>
+
+<body>
+    <div class="header">
+        <img src="../images/PurrfectHealthLogo.png">
+
+        <nav>
+            <ul>
+                <li><a href="../dashboard.html">Dashboard</a></li>
+                <li><a href="../appointment/appointments.html">Appointments</a></li>
+                <li><a href="./clients.html">Clients</a></li>
+                <li><a href="../cat/cats.html">Cats</a></li>
+                <li><a class="logout-btn" style="padding-left: 143px" href="../login.html" onclick="handleLogout()
+                        ">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="title-header">
+        <span class="page-title">Clients</span>
+    </div>
+
+    <div class="content">
+        <div class="button-container">
+            <div class="button">
+                <button type="submit" id="add-client-btn" class="add-client-btn">Add New Client</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/client/clients.js" type="application/javascript"></script>
+</body>
+</html>

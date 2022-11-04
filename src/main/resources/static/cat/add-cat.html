@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PurrfectHealth - Add Cat</title>
+</head>
+<body class="container">
+<div class="container-md">
+    <h1>Add Cat</h1>
+
+    <form id="add-cat-form">
+        <div class="form-group">
+            <label for="cat-name">Name:</label>
+            <input type="text" class="form-control" id="cat-name" placeholder="Name">
+        </div>
+
+        <div class="form-group">
+            <label for="cat-age">Age:</label>
+            <input type="text" class="form-control" id="cat-age" placeholder="Age">
+        </div>
+
+        <div class="form-group">
+            <p>Gender:</p>
+            <input type="radio" id="cat-male" name="cat-gender" value="Male">
+            <label for="cat-male">Male</label><br>
+
+            <input type="radio" id="cat-female" name="cat-gender" value="Female">
+            <label for="cat-female">Female</label><br>
+        </div>
+
+        <div class="form-group">
+            <label for="cat-breed">Breed:</label>
+            <input type="text" class="form-control" id="cat-breed" placeholder="Breed">
+        </div>
+
+        <div class="form-group">
+            <label for="cat-pattern">Fur pattern:</label>
+            <input type="text" class="form-control" id="cat-pattern" placeholder="Pattern">
+        </div>
+
+        <div class="form-group">
+            <label for="cat-color">Color(s):</label>
+            <input type="text" class="form-control" id="cat-color" placeholder="Color(s)">
+        </div>
+
+        <div class="form-group">
+            <p>Altered?:</p>
+            <input type="radio" id="cat-altered" name="cat-altered" value="Yes">
+            <label for="cat-altered">Yes</label><br>
+
+            <input type="radio" id="cat-notaltered" name="cat-altered" value="No">
+            <label for="cat-altered">No</label><br>
+        </div>
+
+        <div class="form-group">
+            <label for="cat-vaccine">Last vaccinated:</label>
+            <input type="date" id="cat-vaccine" name="cat-vaccine">
+        </div>
+
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="appointmentFile">
+            <label class="custom-file-label" for="appointmentFile">Choose file</label>
+        </div><br><br>
+
+        <div class="mt-1">
+            <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+    <script src="/cat/add-cat.js" type="application/javascript"></script>
+</body>
+</html>

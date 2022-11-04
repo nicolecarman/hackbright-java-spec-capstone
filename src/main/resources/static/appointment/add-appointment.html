@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./appointment.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>PurrfectHealth - Add Appointment</title>
+</head>
+
+<body>
+    <div class="header">
+        <img src="../images/PurrfectHealthLogo.png">
+
+        <nav>
+            <ul>
+                <li><a href="../dashboard.html">Dashboard</a></li>
+                <li><a href="./appointments.html">Appointments</a></li>
+                <li><a href="../client/clients.html">Clients</a></li>
+                <li><a href="../cat/cats.html">Cats</a></li>
+                <li><a class="logout-btn" style="padding-left: 100px" href="../login.html" onclick="handleLogout()
+                        ">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="title-header">
+        <span class="page-title">Add New Appointment</span>
+    </div>
+
+    <div class="appointment-form-container">
+        <form id="add-appointment-form" class="form">
+            <div class="form-row">
+                <label for="appointment-date" class="col-sm-2 col-form-label">Date</label>
+                <input type="date" id="appointment-date" name="appointment-date" required>
+            </div><br>
+
+            <div class="form-row">
+                <label for="appointment-time" class="col-sm-2 col-form-label">Time</label>
+                <input type="time" id="appointment-time" name="appointment-time">
+            </div><br>
+
+            <div class="form-row">
+                <label for="appointment-client-selection" class="col-sm-2 col-form-label">Client</label>
+                <select class="custom-select" id="appointment-client-selection">
+                    <option value="" disabled selected>Select client name</option>
+                </select>
+            </div><br>
+
+            <div class="form-row">
+                <label for="appointment-cat-selection" class="col-sm-2 col-form-label">Cat</label>
+                <select class="custom-select" id="appointment-cat-selection">
+                    <option value="" disabled selected>Select cat name</option>
+                </select>
+            </div><br>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="appointment-type" id="walk-in" value="Walk-in (urgent)">
+                <label class="form-check-label" for="walk-in">
+                    Walk-in (urgent)
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="appointment-type" id="wellness-visit" value="Wellness visit">
+                <label class="form-check-label" for="wellness-visit">
+                    Wellness visit
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="appointment-type" id="vaccine" value="Vaccines">
+                <label class="form-check-label" for="vaccine">
+                    Vaccine
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="appointment-type" id="grooming" value="Grooming">
+                <label class="form-check-label" for="grooming">
+                    Grooming
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="appointment-type" id="dental" value="Dental">
+                <label class="form-check-label" for="dental">
+                    Dental
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="appointment-type" id="surgical" value="Surgical">
+                <label class="form-check-label" for="surgical">
+                    Surgical
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="appointment-type" id="boarding" value="Boarding">
+                <label class="form-check-label" for="boarding">
+                    Boarding
+                </label>
+            </div><br>
+
+            <div class="form-group">
+                <label for="appointment-note">Notes</label>
+                <textarea class="form-control" id="appointment-note" rows="3" placeholder="Please include any notes or relevant details about this appointment (if needed)."></textarea>
+            </div><br>
+
+            <div class="mt-1">
+                <button type="submit" class="btn btn-info">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/client/clientoptions.js" type="application/javascript"></script>
+    <script>populateClientOptions('appointment-client-selection')</script>
+    <script src="/cat/catoptions.js" type="application/javascript"></script>
+    <script src="/appointment/add-appointment.js" type="application/javascript"></script>
+</body>
+</html>
