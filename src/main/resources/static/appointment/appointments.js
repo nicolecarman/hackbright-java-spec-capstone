@@ -53,13 +53,16 @@ async function findAllAppointments() {
         .catch(err => console.error(err))
 }
 
+findAllAppointments()
+
 
 
 
 const createAppointmentCards = (array) => {
+    appointmentContainer.innerHTML = ''
     array.forEach(data => {
         const appointmentCard = document.createElement("div")
-
+        appointmentCard.classList.add("appointment")
         appointmentCard.innerHTML = `
             <div class="appointment-card">
                     <ul class="appointment-styling">
@@ -68,6 +71,7 @@ const createAppointmentCards = (array) => {
                         <li class="appointment-styling">${data.type}</li>
                         <li class="appointment-styling">${data.clientId}</li>
                         <li class="appointment-styling">${data.catId}</li>
+                        <li class="delete-note" onclick="handleDeleteAppointment(${data.id})">delete</text></li>
                     </ul>
                 </div>
             </div>
@@ -76,7 +80,19 @@ const createAppointmentCards = (array) => {
     })
 }
 
-findAllAppointments()
+
+
+
+// deletes an appointment
+async function handleDeleteAppointment(appointmentId){
+    await fetch(`${appointmentConfig.baseUrl}/appointments/` + appointmentId, {
+        method: "DELETE",
+        headers: appointmentConfig.headers
+    })
+        .catch(err => console.error(err))
+
+    return findAllAppointments();
+}
 
 
 

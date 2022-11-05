@@ -52,7 +52,7 @@ const handleSubmit = async (e) =>{
 
         .then(data => {
             console.log(data);
-            window.location.pathname = '/appointments.html';
+            window.location.pathname = '/appointment/appointments.html';
         })
 
         .catch(err => console.error(err.message))
