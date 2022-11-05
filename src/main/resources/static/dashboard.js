@@ -37,7 +37,7 @@ async function getFirstName(userId) {
 // within the modal as well as assign a custom "data-" tag to the "Save" button element
 const populateWelcome = (data) =>{
     welcomeText.innerText = ''
-    welcomeText.innerText = "Welcome, " + data.firstName;
+    welcomeText.innerText = "Welcome, " + data.firstName + "!";
 }
 
 getFirstName(userId);

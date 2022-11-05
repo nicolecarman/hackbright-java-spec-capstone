@@ -4,7 +4,7 @@
     z-index: 1;
     max-width: 700px;
     margin: 0 auto;
-    padding-top: 50px;
+    padding-top: 60px;
 }
 .form {
     position: relative;
@@ -19,9 +19,14 @@
 
 
 /* begin appointments.html */
+#appointment-container {
+    width: 100%;
+    margin: 0 auto;
+}
 .button-container {
     display: flex;
     justify-content: center;
+    margin-top: 80px;
     margin-bottom: 85px;
 }
 .button {
@@ -43,8 +48,9 @@
 }
 .appointment-card {
     margin-left: 150px;
-    border: 1px #b3b3b3 solid;
+    border: 1px #F0F0F0 solid;
     max-width: 70%;
+    font-size: 17px;
 }
 .appointment-styling {
     display: inline-block;

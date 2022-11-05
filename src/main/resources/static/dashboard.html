@@ -31,28 +31,33 @@
     <div class="content">
         <div class="layout-container">
         <main>
-            <!-- Welcome text -->
-            <div id="welcomeText">
-                <p></p>
+            <!-- Upcoming appointments -->
+            <div class="upcoming-appointments">
+                <p>Upcoming Appointments</p>
             </div>
 
             <div id="dashboard-appointment-container" class="container-fluid"></div>
         </main>
 
         <aside>
+            <!-- Welcome text -->
+            <div id="welcomeText">
+                <p></p>
+            </div>
+
             <p class="sidebar-title">Notes</p>
             <div id="note-container" class="notes-styling"></div>
 
-            <br><br><br>
+            <br><br>
 
-            <p class="sidebar-title">Create a note</p>
+            <p class="sidebar-title">Add note</p>
             <form id="note-form">
                 <div class="form-group">
                     <textarea class="form-control" id="note-input" placeholder="Add your note..." rows="5" style="width: 190px;"></textarea>
                 </div>
 
                 <div>
-                    <button id="submit-button" type="submit" class="submit-note">Submit</button>
+                    <button id="submit-button" type="submit" class="submit-note">Add Note</button>
                 </div>
             </form>
         </aside>

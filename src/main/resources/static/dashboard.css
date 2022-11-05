@@ -1,27 +1,34 @@
-#welcomeText {
-    font-size: 23px;
+.content {
+
 }
-
-
-/* begin grid settings (for main and right sidebar) */
+/* grid settings (for main and aside) */
 .layout-container {
     display: flex;
 }
 main {
-    flex: 3.5;
+    flex: 3.0;
 }
-aside {
-    border: 1px solid #F0F0F0;
-    border-radius: 5px;
-    padding: 15px 35px 35px 35px;
-    margin-top: 15px;
-    width: 200px;
-    margin-bottom: 150px;
+.upcoming-appointments {
+    font-size: 23px;
+
 }
 /* end grid settings */
 
 
-/* begin notes sidebar */
+/* begin notes */
+aside {
+    flex: 1.0;
+    border: 1px solid #F0F0F0;
+    border-radius: 5px;
+    padding: 15px 35px 35px 35px;
+    margin-top: 75px;
+    margin-bottom: 150px;
+}
+#welcomeText {
+    font-size: 23px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
 .sidebar-title {
     font-size: 20px;
 }
@@ -33,13 +40,27 @@ aside {
     height: 30px;
 }
 .notes-styling {
-    word-break: break-all;
-    white-space: normal;
-    max-width: 170px;
+    inline-size: 250px;
+    overflow-wrap: break-word;
+    hyphens: manual;
 }
 .delete-note {
     color: #FF3333;
     padding-left: 25px;
     text-decoration: underline;
+    cursor: pointer;
 }
 /* end notes sidebar */
+
+
+/* begin dashboard appointments */
+.dashboard-appointment-card {
+    border: 1px #F0F0F0 solid;
+    max-width: 100%;
+}
+.appointment-styling {
+    display: inline-block;
+    padding-right: 20px;
+    font-size: 16px;
+}
+/* end dashboard appointments */

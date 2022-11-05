@@ -25,40 +25,33 @@ async function findAllAppointments() {
 
 
 const createAppointmentCards = (array) => {
-        array.forEach(data => {
-            // push data to new array
-            const appointmentDetails = [];
-            appointmentDetails.push(data);
+    array.forEach(data => {
+        // push data to new array
+        const appointmentDetails = [];
+        appointmentDetails.push(data);
 
-            // create HTML div
-            const appointmentCard = document.createElement("div")
+        // create HTML div
+        const appointmentCard = document.createElement("div")
 
-            // splice the first 10 things from our array
-            // new spliced array is in upcomingAppointments
-            const upcomingAppointments = appointmentDetails.slice(0, 10);
+        // splice the first 10 things from our array
+        // new sliced array is in upcomingAppointments
+        const upcomingAppointments = appointmentDetails.slice(0, 10);
 
-            // testing data access
-            console.log(upcomingAppointments[0].date)
-            console.log(upcomingAppointments[0].time)
+        // testing data access
+        //console.log(upcomingAppointments[0].date)
+        //console.log(upcomingAppointments[0].time)
 
+        // doesn't work, prints "object"
+        //dashboardAppointmentContainer.append(upcomingAppointments);
+        //console.log(dashboardAppointmentContainer)
 
+        appointmentCard.innerHTML = upcomingAppointments[0].date
 
-
-            /* for (let i = 0; i < appointmentDetails.length; i++) {
-                 const appointmentCard = document.createElement("div")
-
-                 appointmentCard.innerHTML = appointmentDetails[i]
-                 console.log(appointmentDetails[i])
-                 //dashboardAppointmentContainer.append(appointmentCard);
-                 //console.log("hey" + dashboardAppointmentContainer)
-             }
-
- /*
-                 appointmentCard.innerHTML = `
-                     <div class="appointment-card">
+        appointmentCard.innerHTML = `
+                     <div class="dashboard-appointment-card">
                              <ul class="appointment-styling">
 
-                                 <li class="appointment-styling">${data.date}</li>
+                                 <li class="appointment-styling">${upcomingAppointments[0].date}</li>
                                  <li class="appointment-styling">${data.time}</li>
                                  <li class="appointment-styling">${data.type}</li>
                                  <li class="appointment-styling">${data.clientId}</li>
@@ -67,11 +60,8 @@ const createAppointmentCards = (array) => {
                          </div>
                      </div>
                  `
-
-
-             dashboardAppointmentContainer.append(appointmentCard);*/
-        })
+        dashboardAppointmentContainer.append(appointmentCard);
+    })
 }
-
 
 findAllAppointments()
