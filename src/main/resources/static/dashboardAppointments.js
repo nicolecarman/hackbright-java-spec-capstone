@@ -27,39 +27,68 @@ findUpcomingAppointments()
 
 
 const createUpcomingAppointmentCards = (array) => {
-    array.forEach(data => {
-        // push data to new array
-        const allAppointments = [];
-        allAppointments.push(data);
+    let upcomingAppointments = array.slice(0, 5)
 
-        // DOESN'T WORK. DOESN'T GRAB FIRST 5 APPOINTMENTS
-        // grab the first 5 things from our array and put it in new array, upcomingAppointments
-        const upcomingAppointments = allAppointments.slice(0, 4);
-        console.log(upcomingAppointments)
-
-
-        // create HTML div
-        const appointmentCard = document.createElement("div")
+    for (let i = 0; i < upcomingAppointments.length; i++) {
+    // save appointment info to variables
+    const date = upcomingAppointments[i].date;
+    const time = upcomingAppointments[i].time;
+    const type = upcomingAppointments[i].type;
+    const clientId = upcomingAppointments[i].clientId;
+    const catId = upcomingAppointments[i].catId;
 
 
-        // testing data access
-        //console.log(upcomingAppointments[0].date)
-        //console.log(upcomingAppointments[0].time)
+        // gets client's name using the client id we grabbed from the appointment
+        async function getClientName(clientId) {
+            await fetch(`${dashboardAppointmentConfig.baseUrl}/clients/${clientId}`, {
+                method: "GET",
+                headers: dashboardAppointmentConfig.headers
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // save client's name into variables
+                    const firstName = data.firstName;
+                    const lastName = data.lastName;
 
-        for (let i = 0; allAppointments[0].length < 5; i++) {
-            appointmentCard.innerHTML = `
-                     <div class="dashboard-appointment-card">
-                             <ul class="appointment-styling">
 
-                                 <li class="appointment-styling">${upcomingAppointments[0].date}</li>
-                                 <li class="appointment-styling">${upcomingAppointments[0].time}</li>
-                                 <li class="appointment-styling">${upcomingAppointments[0].type}</li>
-                                 <li class="appointment-styling">${upcomingAppointments[0].clientId}</li>
-                                 <li class="appointment-styling">${upcomingAppointments[0].catId}</li>
-                             </ul>
-                         </div>
-                     </div>`
-            dashboardAppointmentContainer.append(appointmentCard);
+                    // gets cat's name using the cat id we grabbed from the appointment
+                    async function getCatName(catId) {
+                        await fetch(`${dashboardAppointmentConfig.baseUrl}/cats/${catId}`, {
+                            method: "GET",
+                            headers: dashboardAppointmentConfig.headers
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+
+                                // save cat's name into variable
+                                const catName = data.name;
+
+
+                                // append all of the appointment info to the cards on appointments.html
+                                const appointmentCard = document.createElement("div")
+
+                                appointmentCard.classList.add("appointment")
+                                appointmentCard.innerHTML = `
+                                <div class="dashboard-appointment-card">
+                                    <ul class="appointment-styling">
+                                        <li class="appointment-styling">${date}</li>
+                                        <li class="appointment-styling">${time}</li>
+                                        <li class="appointment-styling">${type}</li>
+                                        <li class="appointment-styling">${firstName} ${lastName}</li>
+                                        <li class="appointment-styling">${catName}</li>
+                                    </ul>
+                                </div>`
+
+                                dashboardAppointmentContainer.append(appointmentCard);
+                            })
+                            .catch(err => console.error(err))
+                    }
+                    getCatName(catId)
+
+                })
+                .catch(err => console.error(err))
         }
-    })
+        getClientName(clientId)
+    }
+
 }

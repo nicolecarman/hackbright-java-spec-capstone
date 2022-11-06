@@ -1,11 +1,7 @@
 package com.hackbright.purrfectHealth.cat;
 
-import com.hackbright.purrfectHealth.client.Client;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -17,6 +13,9 @@ public class CatController {
 
     @Autowired
     private CatRepository catRepository;
+
+    @Autowired
+    private CatService catService;
 
 
 
@@ -30,5 +29,13 @@ public class CatController {
             response.add(cat.getOptionFormat());
         }
         return response;
+    }
+
+
+
+    // finds cat by id
+    @GetMapping("/{catId}")
+    public CatDto findById(@PathVariable Long catId) {
+        return catService.findCat(catId);
     }
 }
