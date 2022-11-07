@@ -63,8 +63,8 @@ const createAppointmentCards = (array) => {
 
     array.forEach(data => {
         const appointmentId = data.id
-        const date = data.date
-        const time = data.time
+        const date = new Date(data.date).toLocaleDateString()
+        const time = new Date(data.time).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
         const type = data.type
         const clientId = data.clientId
         const catId = data.catId
@@ -105,7 +105,7 @@ const createAppointmentCards = (array) => {
                                               <li class="appointment-styling">${type}</li>
                                               <li class="appointment-styling">${firstName + " " + lastName}</li>
                                               <li class="appointment-styling">${name}</li>
-                                              <li><text class="delete-note" onclick="handleDeleteAppointment(${appointmentId})">delete</text></li>
+                                              <li><text class="delete" onclick="handleDeleteAppointment(${appointmentId})">delete</text></li>
                                          </ul>
                                     </div>`
 

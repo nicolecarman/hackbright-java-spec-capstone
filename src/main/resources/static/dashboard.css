@@ -27,10 +27,16 @@ aside {
 #welcomeText {
     font-size: 23px;
     margin-top: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 .sidebar-title {
     font-size: 20px;
+}
+.quick-links {
+    font-size: 16px;
+    display: block;
+    list-style-type: disc;
+    padding: 0;
 }
 .submit-note {
     background-color: #62929E;

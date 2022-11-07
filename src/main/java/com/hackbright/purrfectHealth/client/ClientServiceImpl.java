@@ -15,18 +15,17 @@ public class ClientServiceImpl implements ClientService {
 
 
 
-/*
+
     // add client
     // @Transactional should be used any time you're saving something to the database to ensure the transaction
     // that gets opened with our datasource gets resolved
     @Override
     @Transactional
-    public ClientDto addClient(ClientDto clientDto) {
+    public void addClient(ClientDto clientDto) {
         Client client = new Client(clientDto);
-        return new ClientDto(clientRepository.saveAndFlush(client));
+        clientRepository.saveAndFlush(client);
     }
 
- */
 
 
 
@@ -42,7 +41,7 @@ public class ClientServiceImpl implements ClientService {
 
     // finds client by id
     @Override
-    public ClientDto findClient(Long id) {
+    public ClientDto findClientById(Long id) {
         Client client = clientRepository.findById(id).get();
 
         // constructor

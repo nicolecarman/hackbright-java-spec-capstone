@@ -27,7 +27,7 @@
     display: flex;
     justify-content: center;
     margin-top: 80px;
-    margin-bottom: 85px;
+    margin-bottom: 60px;
 }
 .button {
     margin: 0;
@@ -53,9 +53,9 @@
     padding-right: 60px;
 }
 .cat-card {
-    margin-left: 225px;
+    margin-left: 150px;
     border: 1px #F0F0F0 solid;
-    max-width: 70%;
+    max-width: 80%;
     font-size: 17px;
 }
 .cat-styling, .cat-styling ul {
@@ -68,6 +68,13 @@
     padding-right: 50px;
 }
 .cat-styling > li:last-child {
+    color: #FF3333;
+    text-decoration: underline;
+    cursor: pointer;
+    right: 15%;
+    position: absolute;
+}
+.delete {
     color: #FF3333;
     text-decoration: underline;
     cursor: pointer;

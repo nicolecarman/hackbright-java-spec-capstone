@@ -1,5 +1,6 @@
 package com.hackbright.purrfectHealth.cat;
 
+import com.hackbright.purrfectHealth.client.Client;
 import com.hackbright.purrfectHealth.client.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,8 @@ public class CatServiceImpl implements CatService {
     private ClientRepository clientRepository;
 
 
-/*
-    // add appointment
+
+    // add cat
     @Override
     @Transactional
     public CatDto addCat(CatDto catDto) {
@@ -31,7 +32,7 @@ public class CatServiceImpl implements CatService {
         return new CatDto(catRepository.saveAndFlush(cat));
     }
 
- */
+
 
 
 

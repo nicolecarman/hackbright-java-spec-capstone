@@ -2,6 +2,7 @@ package com.hackbright.purrfectHealth.client;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.hackbright.purrfectHealth.appointment.Appointment;
+import com.hackbright.purrfectHealth.appointment.AppointmentDto;
 import com.hackbright.purrfectHealth.cat.Cat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -52,6 +53,37 @@ public class Client {
 
     @Column
     private String email;
+
+
+
+    // constructor that accepts the associated DTO as an argument
+    // contains conditional logic to help prevent null pointer exceptions
+    public Client(ClientDto clientDto) {
+        if (clientDto.getFirstName() != null) {
+            this.firstName = clientDto.getFirstName();
+        }
+        if (clientDto.getLastName() != null) {
+            this.lastName = clientDto.getLastName();
+        }
+        if (clientDto.getAddress() != null) {
+            this.address = clientDto.getAddress();
+        }
+        if (clientDto.getCity() != null) {
+            this.city = clientDto.getCity();
+        }
+        if (clientDto.getState() != null) {
+            this.state = clientDto.getState();
+        }
+        if (clientDto.getZipcode() != null) {
+            this.zipcode = clientDto.getZipcode();
+        }
+        if (clientDto.getPhone() != null) {
+            this.phone = clientDto.getPhone();
+        }
+        if (clientDto.getEmail() != null) {
+            this.email = clientDto.getEmail();
+        }
+    }
 
 
 

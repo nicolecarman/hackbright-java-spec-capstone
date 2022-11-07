@@ -1,6 +1,5 @@
 package com.hackbright.purrfectHealth.cat;
 
-import com.hackbright.purrfectHealth.appointment.AppointmentDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,8 +21,8 @@ public class CatController {
 
     // Add cat
     @PostMapping("/add-cat")
-    public CatDto addCat(@RequestBody CatDto catDto) {
-        return catService.addCat(catDto);
+    public void addCat(@RequestBody CatDto catDto) {
+        catService.addCat(catDto);
     }
 
 

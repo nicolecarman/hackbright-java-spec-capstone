@@ -38,14 +38,10 @@ const handleSubmit = async (e) =>{
         body: JSON.stringify(bodyObj),
         headers: clientConfig.headers
     })
-        .then(response => response.json())
-
-        .then(data => {
-            console.log(data);
-            window.location.pathname = '/client/clients.html';
-        })
-
         .catch(err => console.error(err.message))
+        if (response.status == 200) {
+            window.location.pathname = '/client/clients.html';
+        }
 }
 
 addClientForm.addEventListener("submit", handleSubmit)

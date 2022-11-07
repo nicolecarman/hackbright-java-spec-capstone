@@ -65,8 +65,13 @@ const createClientCards = (array) => {
         const clientId = data.id
         const lastName = data.lastName
         const firstName = data.firstName
+        const address = data.address
+        const city = data.city
+        const state = data.state
+        const zipcode = data.zipcode
         const phone = data.phone
         const email = data.email
+
 
 
         // append all of the client info to the cards on appointments.html
@@ -75,12 +80,15 @@ const createClientCards = (array) => {
         clientCard.classList.add("client")
         clientCard.innerHTML = `
             <div class="client-card">
-                 <ul class="client-styling">
-                      <li class="client-styling">${lastName}</li>
-                      <li class="client-styling">${firstName}</li>
-                      <li class="client-styling">${phone}</li>
-                      <li class="client-styling">${email}</li>
-                      <li class="delete-note" onclick="handleDeleteClient(${clientId})">delete</text></li>
+                 <ul>
+                      <li style="client-styling; font-size: 17px">${lastName}, ${firstName}</li>
+                      <li class="client-styling" style="font-size: 17px">${address}</li>
+                      <li style="padding-right: 35px; font-size: 17px">${city}</li>
+                      <li style="25px; font-size: 17px">${state}</li>
+                      <li style="30px; font-size: 17px">${zipcode}</li>
+                      <li class="client-styling" style="font-size: 17px">${phone}</li>
+                      <li class="client-styling" style="font-size: 17px">${email}</li>
+                      <li class="delete" onclick="handleDeleteClient(${clientId})">delete</text></li>
                  </ul>
             </div>`
 

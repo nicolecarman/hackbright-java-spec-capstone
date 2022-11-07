@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class CatDto implements Serializable {
     private Long id;
     private String name;
-    private Long age;
+    private String age;
     private String gender;
     private String breed;
     private String pattern;

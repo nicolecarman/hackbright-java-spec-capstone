@@ -31,7 +31,7 @@ function mouseout() {
     addCatBtn.setAttribute("style", "background-color:#62929E")
 }
 
-// redirects user to add-appointment.html
+// redirects user to add-cat.html
 addCatBtn.addEventListener("click", function() {
     document.location.href = 'add-cat.html'
 })
@@ -67,6 +67,7 @@ const createCatCards = (array) => {
         const altered = data.altered;
         const vaccine = data.vaccine;
         const clientId = data.clientId;
+        console.log(clientId)
 
 
         // gets client's name using the client id we grabbed from the appointment
@@ -93,7 +94,7 @@ const createCatCards = (array) => {
                                               <li class="cat-styling">${gender}</li>
                                               <li class="cat-styling">${altered}</li>
                                               <li class="cat-styling">${vaccine}</li>
-                                              <li><text class="delete-note" onclick="handleDeleteCat(${catId})">delete</text></li>
+                                              <li><text class="delete" onclick="handleDeleteCat(${catId})">delete</text></li>
                                          </ul>
                                     </div>`
 

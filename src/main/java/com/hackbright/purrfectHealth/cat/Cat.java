@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.hackbright.purrfectHealth.appointment.Appointment;
 import com.hackbright.purrfectHealth.client.Client;
+import com.hackbright.purrfectHealth.client.ClientDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,7 +36,7 @@ public class Cat {
     private String name;
 
     @Column
-    private Long age;
+    private String age;
 
     @Column
     private String gender;
@@ -54,6 +55,37 @@ public class Cat {
 
     @Column
     private String vaccine;
+
+
+
+    // constructor that accepts the associated DTO as an argument
+    // contains conditional logic to help prevent null pointer exceptions
+    public Cat(CatDto catDto) {
+        if (catDto.getName() != null) {
+            this.name = catDto.getName();
+        }
+        if (catDto.getAge() != null) {
+            this.age = catDto.getAge();
+        }
+        if (catDto.getGender() != null) {
+            this.gender = catDto.getGender();
+        }
+        if (catDto.getBreed() != null) {
+            this.breed = catDto.getBreed();
+        }
+        if (catDto.getPattern() != null) {
+            this.pattern = catDto.getPattern();
+        }
+        if (catDto.getColor() != null) {
+            this.color = catDto.getColor();
+        }
+        if (catDto.getAltered() != null) {
+            this.altered = catDto.getAltered();
+        }
+        if (catDto.getVaccine() != null) {
+            this.vaccine = catDto.getVaccine();
+        }
+    }
 
 
 

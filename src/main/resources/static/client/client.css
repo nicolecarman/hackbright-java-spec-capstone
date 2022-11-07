@@ -27,7 +27,7 @@
     display: flex;
     justify-content: center;
     margin-top: 80px;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
 }
 .button {
     margin: 0;
@@ -53,10 +53,10 @@
     padding-right: 60px;
 }
 .client-card {
-    margin-left: 225px;
+    margin-left: 150px;
     border: 1px #F0F0F0 solid;
-    max-width: 70%;
-    font-size: 17px;
+    max-width: 80%;
+    font-size: 16px;
 }
 .client-styling, .client-styling ul {
     display: inline-block;
@@ -68,6 +68,13 @@
     padding-right: 50px;
 }
 .client-styling > li:last-child {
+    color: #FF3333;
+    text-decoration: underline;
+    cursor: pointer;
+    right: 15%;
+    position: absolute;
+}
+.delete {
     color: #FF3333;
     text-decoration: underline;
     cursor: pointer;

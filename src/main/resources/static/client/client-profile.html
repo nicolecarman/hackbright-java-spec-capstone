@@ -2,10 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="../style.css" type="text/css">
+    <link rel="stylesheet" href="../dashboard.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400&display=swap" rel="stylesheet">
+    <title>PurrfectHealth - Client Profile</title>
 </head>
+
 <body>
-<!-- link to add-appointment.html and add-cat.html on the client profiles -->
+<div class="header">
+    <img src="../images/PurrfectHealthLogo.png">
+
+    <nav>
+        <ul>
+            <li><a href="../dashboard.html">Dashboard</a></li>
+            <li><a href="../appointment/appointments.html">Appointments</a></li>
+            <li><a href="./clients.html">Clients</a></li>
+            <li><a href="../cat/cats.html">Cats</a></li>
+            <li><a class="logout-btn" style="padding-left: 173px" href="../login.html" onclick="handleLogout()
+                        ">Logout</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="title-header">
+    <span class="page-title">Client Profile</span>
+</div>
+
+<div class="content">
+    <div class="layout-container">
+        <main>
+            <!-- Upcoming appointments -->
+            <div class="upcoming-appointments">
+                <p>Upcoming Appointments</p>
+            </div>
+
+            <div id="client-profile-container" class="container-fluid"></div>
+        </main>
+
+        <aside>
+            <!-- Welcome text -->
+            <div id="welcomeText">
+                <p></p>
+            </div>
+
+            <p class="sidebar-title">Notes</p>
+            <div id="note-container" class="notes-styling"></div>
+
+            <br><br>
+
+            <p class="sidebar-title">Add note</p>
+            <form id="note-form">
+                <div class="form-group">
+                    <textarea class="form-control" id="note-input" placeholder="Add your note..." rows="5" style="width: 190px"></textarea>
+                </div>
+
+                <div>
+                    <button id="submit-button" type="submit" class="submit-note">Add Note</button>
+                </div>
+            </form>
+        </aside>
+    </div>
+</div>
+
+
+
+<script src="/client/client-profile.js" type="application/javascript"></script>
 
 </body>
 </html>

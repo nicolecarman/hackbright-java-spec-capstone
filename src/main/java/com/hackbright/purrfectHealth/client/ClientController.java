@@ -1,5 +1,6 @@
 package com.hackbright.purrfectHealth.client;
 
+import com.hackbright.purrfectHealth.cat.CatDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,14 @@ public class ClientController {
     private ClientRepository clientRepository;
     @Autowired
     private ClientService clientService;
+
+
+
+    // Add client
+    @PostMapping("/add-client")
+    public void addClient(@RequestBody ClientDto clientDto) {
+        clientService.addClient(clientDto);
+    }
 
 
 
@@ -41,8 +50,8 @@ public class ClientController {
 
     // finds client by id
     @GetMapping("/{clientId}")
-    public ClientDto findById(@PathVariable Long clientId) {
-        return clientService.findClient(clientId);
+    public ClientDto findClientById(@PathVariable Long clientId) {
+        return clientService.findClientById(clientId);
     }
 
 
