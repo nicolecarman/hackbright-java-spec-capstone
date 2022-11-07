@@ -50,12 +50,10 @@ public class Cat {
     private String color;
 
     @Column
-    private Boolean altered;
+    private String altered;
 
     @Column
     private String vaccine;
-    @Column
-    private String photo;
 
 
 

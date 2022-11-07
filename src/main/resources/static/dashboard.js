@@ -108,7 +108,6 @@ const createNoteCards = (array) => {
 
             <div class="note-card">
                 <p class="notes-styling">- ${data.body} <text class="delete-note" onclick="handleDelete(${data.id})">delete</text></p>
-                </div>
             </div>`
 
         noteContainer.append(noteCard);

@@ -13,12 +13,6 @@ public class UserDto implements Serializable {
     private Long id;
     private String firstName;
     private String lastName;
-    private String address;
-    private String city;
-    private String state;
-    private String zipcode;
-    private String phone;
-    private String email;
     private String username;
     private String password;
 
@@ -35,24 +29,6 @@ public class UserDto implements Serializable {
         }
         if (user.getLastName() != null) {
             this.lastName = user.getLastName();
-        }
-        if (user.getAddress() != null) {
-            this.address = user.getAddress();
-        }
-        if (user.getCity() != null) {
-            this.city = user.getCity();
-        }
-        if (user.getState() != null) {
-            this.state = user.getState();
-        }
-        if (user.getZipcode() != null) {
-            this.zipcode = user.getZipcode();
-        }
-        if (user.getPhone() != null) {
-            this.phone = user.getPhone();
-        }
-        if (user.getEmail() != null) {
-            this.email = user.getEmail();
         }
         if (user.getUsername() != null) {
             this.username = user.getUsername();

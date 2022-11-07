@@ -17,23 +17,23 @@ const appointmentConfig = {
 
 
 // ADD APPOINTMENT BUTTON on appointments.html
-const addClientBtn = document.getElementById('add-appointment-btn')
+const addAppointmentBtn = document.getElementById('add-appointment-btn')
 
 // change mouseover colors
-addClientBtn.addEventListener("mouseover", mouseover)
-addClientBtn.addEventListener("mouseout", mouseout)
+addAppointmentBtn.addEventListener("mouseover", mouseover)
+addAppointmentBtn.addEventListener("mouseout", mouseout)
 
 // functions to change mouseover and mouseout colors
 function mouseover() {
-    addClientBtn.setAttribute("style", "background-color:#546A7B")
+    addAppointmentBtn.setAttribute("style", "background-color:#546A7B")
 }
 
 function mouseout() {
-    addClientBtn.setAttribute("style", "background-color:#62929E")
+    addAppointmentBtn.setAttribute("style", "background-color:#62929E")
 }
 
 // redirects user to add-appointment.html
-addClientBtn.addEventListener("click", function() {
+addAppointmentBtn.addEventListener("click", function() {
     document.location.href = 'add-appointment.html'
 })
 
@@ -59,13 +59,15 @@ findAllAppointments()
 
 
 const createAppointmentCards = (array) => {
+    appointmentContainer.innerHTML = ''
+
     array.forEach(data => {
-        // save appointment info to variables
-        const date = data.date;
-        const time = data.time;
-        const type = data.type;
-        const clientId = data.clientId;
-        const catId = data.catId;
+        const appointmentId = data.id
+        const date = data.date
+        const time = data.time
+        const type = data.type
+        const clientId = data.clientId
+        const catId = data.catId
 
 
         // gets client's name using the client id we grabbed from the appointment
@@ -76,54 +78,51 @@ const createAppointmentCards = (array) => {
             })
                 .then(response => response.json())
                 .then(data => {
-                    // save client's name into variables
-                    const firstName = data.firstName;
-                    const lastName = data.lastName;
+                     const firstName = data.firstName
+                     const lastName = data.lastName
 
 
-                    // gets cat's name using the cat id we grabbed from the appointment
-                    async function getCatName(catId) {
-                        await fetch(`${appointmentConfig.baseUrl}/cats/${catId}`, {
-                            method: "GET",
-                            headers: appointmentConfig.headers
-                        })
-                            .then(response => response.json())
-                            .then(data => {
-
-                                // save cat's name into variable
-                                const catName = data.name;
-
-
-                                // append all of the appointment info to the cards on appointments.html
-                                const appointmentCard = document.createElement("div")
-
-                                appointmentCard.classList.add("appointment")
-                                appointmentCard.innerHTML = `
-                                <div class="appointment-card">
-                                    <ul class="appointment-styling">
-                                        <li class="appointment-styling">${date}</li>
-                                        <li class="appointment-styling">${time}</li>
-                                        <li class="appointment-styling">${type}</li>
-                                        <li class="appointment-styling">${firstName} ${lastName}</li>
-                                        <li class="appointment-styling">${catName}</li>
-                                        <li class="appointment-styling" onclick="handleDeleteAppointment(${data.id})">delete</text></li>
-                                    </ul>
-                                </div>`
-
-                                appointmentContainer.append(appointmentCard);
+                        // gets cat's name using the cat id we grabbed from the appointment
+                        async function getCatName(catId) {
+                            await fetch(`${appointmentConfig.baseUrl}/cats/${catId}`, {
+                                method: "GET",
+                                headers: appointmentConfig.headers
                             })
-                            .catch(err => console.error(err))
-                    }
-                    getCatName(catId)
+                                .then(response => response.json())
+                                .then(data => {
+                                    const name = data.name
+
+
+                                    // append all of the appointment info to the cards on appointments.html
+                                    let appointmentCard = document.createElement("div")
+
+                                    appointmentCard.classList.add("appointment")
+                                    appointmentCard.innerHTML = `
+                                    <div class="appointment-card">
+                                         <ul class="appointment-styling">
+                                              <li class="appointment-styling">${date}</li>
+                                              <li class="appointment-styling">${time}</li>
+                                              <li class="appointment-styling">${type}</li>
+                                              <li class="appointment-styling">${firstName + " " + lastName}</li>
+                                              <li class="appointment-styling">${name}</li>
+                                              <li><text class="delete-note" onclick="handleDeleteAppointment(${appointmentId})">delete</text></li>
+                                         </ul>
+                                    </div>`
+
+                                    appointmentContainer.append(appointmentCard);
+                                })
+                        }
+
+                        getCatName(catId)
 
                 })
-                .catch(err => console.error(err))
         }
+
         getClientName(clientId)
+
     })
-
-
 }
+
 
 
 
@@ -139,3 +138,14 @@ async function handleDeleteAppointment(appointmentId){
     return findAllAppointments();
 }
 
+
+
+
+
+// Clears user cookies and logs out user
+function handleLogout(){
+    let c = document.cookie.split(";");
+    for(let i in c){
+        document.cookie = /^[^=]+/.exec(c[i])[0]+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
+    }
+}

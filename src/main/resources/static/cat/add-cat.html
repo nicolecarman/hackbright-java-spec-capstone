@@ -3,73 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style.css" type="text/css">
+    <link rel="stylesheet" href="../form-pages.css" type="text/css">
+    <link rel="stylesheet" href="../cat/cat.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400&display=swap" rel="stylesheet">
     <title>PurrfectHealth - Add Cat</title>
 </head>
-<body class="container">
-<div class="container-md">
-    <h1>Add Cat</h1>
 
-    <form id="add-cat-form">
-        <div class="form-group">
-            <label for="cat-name">Name:</label>
-            <input type="text" class="form-control" id="cat-name" placeholder="Name">
-        </div>
+<body>
+    <div class="header">
+        <img src="../images/PurrfectHealthLogo.png">
 
-        <div class="form-group">
-            <label for="cat-age">Age:</label>
-            <input type="text" class="form-control" id="cat-age" placeholder="Age">
-        </div>
+        <nav>
+            <ul>
+                <li><a href="../dashboard.html">Dashboard</a></li>
+                <li><a href="../appointment/appointments.html">Appointments</a></li>
+                <li><a href="../client/clients.html">Clients</a></li>
+                <li><a href="./cats.html">Cats</a></li>
+                <li><a class="logout-btn" style="padding-left: 173px" href="../login.html" onclick="handleLogout()
+                            ">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
 
-        <div class="form-group">
-            <p>Gender:</p>
-            <input type="radio" id="cat-male" name="cat-gender" value="Male">
-            <label for="cat-male">Male</label><br>
+    <div class="title-header">
+        <span class="page-title">Add New Cat</span>
+    </div>
 
-            <input type="radio" id="cat-female" name="cat-gender" value="Female">
-            <label for="cat-female">Female</label><br>
-        </div>
+    <div class="cat-form-container">
+        <form id="add-cat-form" class="form">
+            <div class="form-row">
+                <label for="cat-client-selection" class="col-sm-2 col-form-label">Client</label>
+                <select class="custom-select" id="cat-client-selection">
+                    <option value="" disabled selected>Select client name</option>
+                </select>
+            </div><br>
 
-        <div class="form-group">
-            <label for="cat-breed">Breed:</label>
-            <input type="text" class="form-control" id="cat-breed" placeholder="Breed">
-        </div>
+            <div class="row">
+                <div class="col">
+                    <label for="cat-name">Name</label>
+                    <input type="text" class="form-control" id="cat-name" placeholder="Name">
+                </div>
+                <div class="col">
+                    <label for="cat-breed">Breed</label>
+                    <input type="text" class="form-control" id="cat-breed" placeholder="Breed">
+                </div>
+            </div><br>
 
-        <div class="form-group">
-            <label for="cat-pattern">Fur pattern:</label>
-            <input type="text" class="form-control" id="cat-pattern" placeholder="Pattern">
-        </div>
+            <div class="row">
+                <div class="col">
+                    <label for="cat-age">Age</label>
+                    <input type="text" class="form-control" id="cat-age" placeholder="Age" required>
+                </div>
+                <div class="col">
+                    <label for="cat-pattern">Fur pattern</label>
+                    <input type="text" class="form-control" id="cat-pattern" placeholder="Fur pattern">
+                </div>
+                <div class="col">
+                    <label for="cat-color">Color(s)</label>
+                    <input type="text" class="form-control" id="cat-color" placeholder="Cat color(s)">
+                </div>
+            </div><br><br>
 
-        <div class="form-group">
-            <label for="cat-color">Color(s):</label>
-            <input type="text" class="form-control" id="cat-color" placeholder="Color(s)">
-        </div>
+            <div class="form-group">
+                <input type="radio" id="cat-male" name="cat-gender" value="Male">
+                <label class="form-check-label" for="cat-male">Male</label><br>
 
-        <div class="form-group">
-            <p>Altered?:</p>
-            <input type="radio" id="cat-altered" name="cat-altered" value="Yes">
-            <label for="cat-altered">Yes</label><br>
+                <input type="radio" id="cat-female" name="cat-gender" value="Female">
+                <label class="form-check-label" for="cat-female">Female</label><br>
+            </div><br>
 
-            <input type="radio" id="cat-notaltered" name="cat-altered" value="No">
-            <label for="cat-altered">No</label><br>
-        </div>
+            <div class="form-group">
+                <p>Altered?</p>
+                <input type="radio" id="cat-altered" name="cat-altered" value="Yes">
+                <label class="form-check-label" for="cat-altered">Yes</label><br>
 
-        <div class="form-group">
-            <label for="cat-vaccine">Last vaccinated:</label>
-            <input type="date" id="cat-vaccine" name="cat-vaccine">
-        </div>
+                <input type="radio" id="cat-notaltered" name="cat-altered" value="No">
+                <label class="form-check-label" for="cat-altered">No</label><br>
+            </div><br>
 
-        <div class="custom-file">
-            <input type="file" class="custom-file-input" id="appointmentFile">
-            <label class="custom-file-label" for="appointmentFile">Choose file</label>
-        </div><br><br>
+            <div class="form-row">
+                <label for="cat-vaccine" style="padding-right: 10px">Last vaccinated</label>
+                <input type="date" id="cat-vaccine" name="cat-vaccine" required>
+            </div><br><br>
 
-        <div class="mt-1">
-            <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
-</div>
+            <div class="mt-1">
+                <button id="submit-button" type="submit" class="btn btn-info">Submit</button>
+            </div>
+        </form>
+    </div>
 
-
+    <script src="/client/clientoptions.js" type="application/javascript"></script>
+    <script>populateClientOptions('cat-client-selection')</script>
     <script src="/cat/add-cat.js" type="application/javascript"></script>
 </body>
 </html>

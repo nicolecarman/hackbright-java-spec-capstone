@@ -1,4 +1,22 @@
-// ADD APPOINTMENT BUTTON on appointments.html
+// cookie to read in order to get the logged in user's id
+// logout method will clear the cookie
+const cookieArr = document.cookie.split("=")
+const userId = cookieArr[1];
+
+
+
+// base url and header
+const clientConfig = {
+    baseUrl:'http://localhost:8080/api',
+    headers: {
+        'Content-Type':'application/json'
+    }
+}
+
+
+
+
+// ADD CLIENT BUTTON on clients.html
 const addClientBtn = document.getElementById('add-client-btn')
 
 // change mouseover colors
@@ -21,43 +39,78 @@ addClientBtn.addEventListener("click", function() {
 
 
 
-/*
-// COPIED FROM APPOINTMENTS.JS FOR FUNCTIONALITY
-// GET ALL APPOINTMENTS for appointments.html
-const appointmentContainer = document.getElementById("appointment-container")
 
-async function findAllAppointments() {
-    await fetch(`${appointmentConfig.baseUrl}/appointments`, {
+// GET ALL CLIENTS for clients.html
+const clientContainer = document.getElementById("client-container")
+
+async function findAllClients() {
+    await fetch(`${clientConfig.baseUrl}/clients`, {
         method: "GET",
-        headers: appointmentConfig.headers
+        headers: clientConfig.headers
     })
         .then(response => response.json())
-        .then(data => createAppointmentCards(data))
+        .then(data => createClientCards(data))
         .catch(err => console.error(err))
 }
 
+findAllClients()
 
 
 
-const createAppointmentCards = (array) => {
+
+const createClientCards = (array) => {
+    clientContainer.innerHTML = ''
+
     array.forEach(data => {
-        const appointmentCard = document.createElement("div")
+        const clientId = data.id
+        const lastName = data.lastName
+        const firstName = data.firstName
+        const phone = data.phone
+        const email = data.email
 
-        appointmentCard.innerHTML = `
-            <div class="appointment-card">
-                    <ul class="appointment-styling">
-                        <li class="appointment-styling">${data.date}</li>
-                        <li class="appointment-styling">${data.time}</li>
-                        <li class="appointment-styling">${data.type}</li>
-                        <li class="appointment-styling">${data.clientId}</li>
-                        <li class="appointment-styling">${data.catId}</li>
-                    </ul>
-                </div>
-            </div>
-        `
-        appointmentContainer.append(appointmentCard);
+
+        // append all of the client info to the cards on appointments.html
+        let clientCard = document.createElement("div")
+
+        clientCard.classList.add("client")
+        clientCard.innerHTML = `
+            <div class="client-card">
+                 <ul class="client-styling">
+                      <li class="client-styling">${lastName}</li>
+                      <li class="client-styling">${firstName}</li>
+                      <li class="client-styling">${phone}</li>
+                      <li class="client-styling">${email}</li>
+                      <li class="delete-note" onclick="handleDeleteClient(${clientId})">delete</text></li>
+                 </ul>
+            </div>`
+
+        clientContainer.append(clientCard);
     })
 }
 
-findAllAppointments()
- */
+
+
+
+
+// deletes a client
+async function handleDeleteClient(clientId){
+    await fetch(`${clientConfig.baseUrl}/clients/` + clientId, {
+        method: "DELETE",
+        headers: clientConfig.headers
+    })
+        .catch(err => console.error(err))
+
+    return findAllClients();
+}
+
+
+
+
+
+// Clears user cookies and logs out user
+function handleLogout(){
+    let c = document.cookie.split(";");
+    for(let i in c){
+        document.cookie = /^[^=]+/.exec(c[i])[0]+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
+    }
+}

@@ -44,6 +44,12 @@ aside {
     overflow-wrap: break-word;
     hyphens: manual;
 }
+.delete-note {
+    color: #FF3333;
+    padding-left: 25px;
+    text-decoration: underline;
+    cursor: pointer;
+}
 /* end notes sidebar */
 
 
@@ -54,7 +60,11 @@ aside {
 }
 .appointment-styling {
     display: inline-block;
-    padding-right: 40px;
+    width: 110px;
+    font-size: 16px;
+}
+.extra-padding {
+    padding-right: 50px;
     font-size: 16px;
 }
 /* end dashboard appointments */

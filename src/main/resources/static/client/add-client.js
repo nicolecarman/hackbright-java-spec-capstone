@@ -15,38 +15,38 @@ const clientConfig = {
 
 
 
-/*
-// COPIED AND PASTED FROM ADD-APPOINTMENT.HTML
-// Pulls add appointment form from add-appointment.html
-const addAppointmentForm = document.getElementById('add-appointment-form')
 
-// add appointment
+// Pulls add client form from add-client.html
+const addClientForm = document.getElementById('add-appointment-form')
+
+// add client
 const handleSubmit = async (e) =>{
     e.preventDefault()
 
     let bodyObj = {
-        date: document.getElementById('appointment-date').value,
-        time: document.getElementById('appointment-time').value,
-        type: document.querySelector('input[name="appointment-type"]:checked').value,
-        notes: document.getElementById('appointment-note').value,
-        clientId: document.getElementById('appointment-client-selection').value,
-        catId: document.getElementById('appointment-cat-selection').value
+        firstName: document.getElementById('client-fname').value,
+        lastName: document.getElementById('client-lname').value,
+        address: document.getElementById('client-address').value,
+        city: document.getElementById('client-city').value,
+        state: document.getElementById('client-state').value,
+        phone: document.getElementById('client-number').value,
+        email: document.getElementById('client-email').value
     }
 
-    const response = await fetch(`${appointmentConfig.baseUrl}/appointments/add-appointment`, {
+    const response = await fetch(`${clientConfig.baseUrl}/clients/add-client`, {
         method: "POST",
         body: JSON.stringify(bodyObj),
-        headers: appointmentConfig.headers
+        headers: clientConfig.headers
     })
         .then(response => response.json())
 
         .then(data => {
             console.log(data);
-            window.location.pathname = '/dashboard.html';
+            window.location.pathname = '/client/clients.html';
         })
 
         .catch(err => console.error(err.message))
 }
 
-addAppointmentForm.addEventListener("submit", handleSubmit)
- */
+addClientForm.addEventListener("submit", handleSubmit)
+

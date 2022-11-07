@@ -70,11 +70,11 @@ const createUpcomingAppointmentCards = (array) => {
                                 appointmentCard.classList.add("appointment")
                                 appointmentCard.innerHTML = `
                                 <div class="dashboard-appointment-card">
-                                    <ul class="appointment-styling">
+                                    <ul style="padding-left: 10px">
                                         <li class="appointment-styling">${date}</li>
-                                        <li class="appointment-styling">${time}</li>
+                                        <li class="extra-padding">${time}</li>
                                         <li class="appointment-styling">${type}</li>
-                                        <li class="appointment-styling">${firstName} ${lastName}</li>
+                                        <li class="extra-padding">${firstName} ${lastName}</li>
                                         <li class="appointment-styling">${catName}</li>
                                     </ul>
                                 </div>`
@@ -91,4 +91,15 @@ const createUpcomingAppointmentCards = (array) => {
         getClientName(clientId)
     }
 
+}
+
+
+
+
+// Clears user cookies and logs out user
+function handleLogout(){
+    let c = document.cookie.split(";");
+    for(let i in c){
+        document.cookie = /^[^=]+/.exec(c[i])[0]+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
+    }
 }

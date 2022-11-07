@@ -17,9 +17,9 @@ public class CatDto implements Serializable {
     private String breed;
     private String pattern;
     private String color;
-    private Boolean altered;
+    private String altered;
     private String vaccine;
-    private String photo;
+    private Long clientId;
 
 
 
@@ -53,8 +53,8 @@ public class CatDto implements Serializable {
         if (cat.getVaccine() != null) {
             this.vaccine = cat.getVaccine();
         }
-        if (cat.getPhoto() != null) {
-            this.photo = cat.getPhoto();
+        if (cat.getClient().getId() != null) {
+            this.clientId = cat.getClient().getId();
         }
     }
 }

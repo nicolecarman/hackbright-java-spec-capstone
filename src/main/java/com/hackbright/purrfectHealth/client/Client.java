@@ -86,7 +86,6 @@ public class Client {
 
 
 
-
     // client dropdown on add appointment form in add-appointment.html
     // This is the format for our key value pairs from client table in database
     // Using this in client controller to loop through data

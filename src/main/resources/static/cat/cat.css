@@ -1,6 +1,28 @@
+/* begin add-cat.html */
+.cat-form-container {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 700px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+/* end add-cat.html */
 
 
 /* begin cats.html */
+#cat-container {
+    width: 100%;
+    margin: 0 auto;
+}
 .button-container {
     display: flex;
     justify-content: center;
@@ -23,5 +45,33 @@
     color: #FFFFFF;
     font-size: 14px;
     cursor: pointer;
+}
+.cat-card-header {
+    margin-left: 228px;
+}
+.header-styling {
+    padding-right: 60px;
+}
+.cat-card {
+    margin-left: 225px;
+    border: 1px #F0F0F0 solid;
+    max-width: 70%;
+    font-size: 17px;
+}
+.cat-styling, .cat-styling ul {
+    display: inline-block;
+}
+.cat-styling li {
+    width: 120px;
+}
+.extra-padding {
+    padding-right: 50px;
+}
+.cat-styling > li:last-child {
+    color: #FF3333;
+    text-decoration: underline;
+    cursor: pointer;
+    right: 15%;
+    position: absolute;
 }
 /* end cats.html */

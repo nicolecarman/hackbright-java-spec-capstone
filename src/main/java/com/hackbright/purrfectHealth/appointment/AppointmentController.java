@@ -36,10 +36,14 @@ public class AppointmentController {
     }
 
 
-
+/*
     // update an appointment
     @PutMapping("/update-appointment")
     public AppointmentDto updateAppointment(@RequestBody AppointmentDto appointmentDto) {
         return appointmentService.updateAppointmentById(appointmentDto);
     }
+
+ */
+
+
 }

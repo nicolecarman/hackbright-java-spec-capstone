@@ -6,7 +6,7 @@ const userId = cookieArr[1];
 
 
 // base url and header
-const cattConfig = {
+const catConfig = {
     baseUrl:'http://localhost:8080/api',
     headers: {
         'Content-Type':'application/json'
@@ -15,38 +15,50 @@ const cattConfig = {
 
 
 
-/*
-// COPIED AND PASTED FROM ADD-APPOINTMENT.HTML
-// Pulls add appointment form from add-appointment.html
-const addAppointmentForm = document.getElementById('add-appointment-form')
 
-// add appointment
+// Pulls add cat form from add-appointment.html
+const addCatForm = document.getElementById('add-cat-form')
+
+// add cat
 const handleSubmit = async (e) =>{
     e.preventDefault()
 
     let bodyObj = {
-        date: document.getElementById('appointment-date').value,
-        time: document.getElementById('appointment-time').value,
-        type: document.querySelector('input[name="appointment-type"]:checked').value,
-        notes: document.getElementById('appointment-note').value,
-        clientId: document.getElementById('appointment-client-selection').value,
-        catId: document.getElementById('appointment-cat-selection').value
+        clientId: document.getElementById('cat-client-selection').value,
+        name: document.getElementById('cat-name').value,
+        breed: document.getElementById('cat-breed').value,
+        age: document.getElementById('cat-age').value,
+        pattern: document.getElementById('cat-pattern').value,
+        color: document.getElementById('cat-color').value,
+        gender: document.querySelector('input[name="cat-gender"]:checked').value,
+        altered: document.querySelector('input[name="cat-altered"]:checked').value,
+        vaccine: document.getElementById('cat-vaccine').value
     }
 
-    const response = await fetch(`${appointmentConfig.baseUrl}/appointments/add-appointment`, {
+    const response = await fetch(`${catConfig.baseUrl}/cats/add-cat`, {
         method: "POST",
         body: JSON.stringify(bodyObj),
-        headers: appointmentConfig.headers
+        headers: catConfig.headers
     })
         .then(response => response.json())
 
         .then(data => {
             console.log(data);
-            window.location.pathname = '/dashboard.html';
+            window.location.pathname = '/cat/cats.html';
         })
 
         .catch(err => console.error(err.message))
 }
 
-addAppointmentForm.addEventListener("submit", handleSubmit)
- */
+addCatForm.addEventListener("submit", handleSubmit)
+
+
+
+
+// Clears user cookies and logs out user
+function handleLogout(){
+    let c = document.cookie.split(";");
+    for(let i in c){
+        document.cookie = /^[^=]+/.exec(c[i])[0]+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
+    }
+}

@@ -27,7 +27,7 @@
     display: flex;
     justify-content: center;
     margin-top: 80px;
-    margin-bottom: 80px;
+    margin-bottom: 70px;
 }
 .button {
     margin: 0;
@@ -46,6 +46,12 @@
     font-size: 14px;
     cursor: pointer;
 }
+.appointment-card-header {
+    margin-left: 228px;
+}
+.header-styling {
+    padding-right: 60px;
+}
 .appointment-card {
     margin-left: 225px;
     border: 1px #F0F0F0 solid;
@@ -54,14 +60,18 @@
 }
 .appointment-styling, .appointment-styling ul {
     display: inline-block;
+}
+.appointment-styling li {
+    width: 120px;
+}
+.extra-padding {
     padding-right: 50px;
 }
 .appointment-styling > li:last-child {
     color: #FF3333;
-    padding-left: 25px;
     text-decoration: underline;
     cursor: pointer;
-    right: 20%;
+    right: 15%;
     position: absolute;
 }
 /* end appointments.html */

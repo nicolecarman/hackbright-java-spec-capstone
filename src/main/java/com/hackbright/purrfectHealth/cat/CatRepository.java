@@ -1,7 +1,5 @@
 package com.hackbright.purrfectHealth.cat;
 
-import com.hackbright.purrfectHealth.note.Note;
-import com.hackbright.purrfectHealth.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -40,24 +40,6 @@ public class User {
     @Column
     private String lastName;
 
-    @Column
-    private String address;
-
-    @Column
-    private String city;
-
-    @Column
-    private String state;
-
-    @Column
-    private String zipcode;
-
-    @Column
-    private String phone;
-
-    @Column
-    private String email;
-
 
 
     // constructor that accepts the associated DTO as an argument
@@ -74,24 +56,6 @@ public class User {
         }
         if (userDto.getLastName() != null) {
             this.lastName = userDto.getLastName();
-        }
-        if (userDto.getAddress() != null) {
-            this.address = userDto.getAddress();
-        }
-        if (userDto.getCity() != null) {
-            this.city = userDto.getCity();
-        }
-        if (userDto.getState() != null) {
-            this.state = userDto.getState();
-        }
-        if (userDto.getZipcode() != null) {
-            this.zipcode = userDto.getZipcode();
-        }
-        if (userDto.getPhone() != null) {
-            this.phone = userDto.getPhone();
-        }
-        if (userDto.getEmail() != null) {
-            this.email = userDto.getEmail();
         }
     }
 

@@ -1,5 +1,6 @@
 package com.hackbright.purrfectHealth.cat;
 
+import com.hackbright.purrfectHealth.appointment.AppointmentDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,22 @@ public class CatController {
 
     @Autowired
     private CatService catService;
+
+
+
+    // Add appointment
+    @PostMapping("/add-cat")
+    public CatDto addCat(@RequestBody CatDto catDto) {
+        return catService.addCat(catDto);
+    }
+
+
+
+    // GET all cats
+    @GetMapping
+    public List<CatDto> findAllCats(CatDto catDto) {
+        return catService.findAllCats(catDto);
+    }
 
 
 
@@ -37,5 +54,13 @@ public class CatController {
     @GetMapping("/{catId}")
     public CatDto findById(@PathVariable Long catId) {
         return catService.findCat(catId);
+    }
+
+
+
+    // delete a note
+    @DeleteMapping("/{catId}")
+    public void deleteCatById(@PathVariable Long catId) {
+        catService.deleteCatById(catId);
     }
 }
