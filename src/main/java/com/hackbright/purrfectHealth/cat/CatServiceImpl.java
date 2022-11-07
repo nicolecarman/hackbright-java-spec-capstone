@@ -1,8 +1,6 @@
 package com.hackbright.purrfectHealth.cat;
 
-import com.hackbright.purrfectHealth.client.Client;
 import com.hackbright.purrfectHealth.client.ClientRepository;
-import com.hackbright.purrfectHealth.note.Note;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,36 +18,20 @@ public class CatServiceImpl implements CatService {
     private ClientRepository clientRepository;
 
 
-
-    /*
-    // add cat
+/*
+    // add appointment
     @Override
+    @Transactional
     public CatDto addCat(CatDto catDto) {
         Cat cat = new Cat(catDto);
+
         Optional<Client> clientOptional = clientRepository.findById(catDto.getClientId());
         cat.setClient(clientOptional.get());
+
         return new CatDto(catRepository.saveAndFlush(cat));
     }
 
-
-    OR
-
-
-    @Override
-    public CatDto addCat(CatDto catDto) {
-        Cat cat = new Cat(catDto);
-        Optional<Client> clientOptional = clientRepository.findById(catDto.getClientId());
-        cat.setClient(clientOptional.get());
-        return new CatDto(catRepository.saveAndFlush(cat));
-    }
-*/
-
-
-    // I ONLY HAVE THIS SO THAT IT WOULDN'T BE RED (SO THAT I COULD RUN IT
-    @Override
-    public CatDto addCat(CatDto catDto) {
-        return null;
-    }
+ */
 
 
 

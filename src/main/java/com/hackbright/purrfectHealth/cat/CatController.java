@@ -20,7 +20,7 @@ public class CatController {
 
 
 
-    // Add appointment
+    // Add cat
     @PostMapping("/add-cat")
     public CatDto addCat(@RequestBody CatDto catDto) {
         return catService.addCat(catDto);

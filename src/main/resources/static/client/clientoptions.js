@@ -16,5 +16,4 @@ async function populateClientOptions(selectElementId) {
                 )
             );
         })
-        .catch(err => console.error(err))
 }

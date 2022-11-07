@@ -16,6 +16,18 @@ const catConfig = {
 
 
 
+// gets DOM object (the client dropdown menu) and applies an event listener to the selection
+// that the user makes. In other words, it pulls the cats of whatever client the user clicks on
+//const selectElement = document.getElementById('client-cat-selection');
+
+//selectElement.addEventListener('change', (event) => {
+    //populateClientOptions('client-cat-selection', event.target.value)
+//});
+
+
+
+
+
 // Pulls add cat form from add-appointment.html
 const addCatForm = document.getElementById('add-cat-form')
 
@@ -24,7 +36,7 @@ const handleSubmit = async (e) =>{
     e.preventDefault()
 
     let bodyObj = {
-        clientId: document.getElementById('cat-client-selection').value,
+        clientId: document.getElementById('client-cat-selection').value,
         name: document.getElementById('cat-name').value,
         breed: document.getElementById('cat-breed').value,
         age: document.getElementById('cat-age').value,

@@ -1,6 +1,5 @@
 package com.hackbright.purrfectHealth.client;
 
-import com.hackbright.purrfectHealth.appointment.Appointment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,17 +15,19 @@ public class ClientServiceImpl implements ClientService {
 
 
 
-    /*
+/*
     // add client
+    // @Transactional should be used any time you're saving something to the database to ensure the transaction
+    // that gets opened with our datasource gets resolved
     @Override
     @Transactional
     public ClientDto addClient(ClientDto clientDto) {
         Client client = new Client(clientDto);
-
-
         return new ClientDto(clientRepository.saveAndFlush(client));
     }
-     */
+
+ */
+
 
 
 
