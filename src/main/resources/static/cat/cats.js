@@ -15,7 +15,7 @@ const catConfig = {
 
 
 
-// ADD APPOINTMENT BUTTON on appointments.html
+// ADD CAT BUTTON on cats.html
 const addCatBtn = document.getElementById('add-cat-btn')
 
 // change mouseover colors
@@ -52,12 +52,15 @@ async function findAllCats() {
         .catch(err => console.error(err))
 }
 
+findAllCats()
+
 
 
 
 const createCatCards = (array) => {
+    catContainer.innerHTML = ''
+
     array.forEach(data => {
-        // save cat info to variables
         const catId = data.id;
         const name = data.name;
         const gender = data.gender;
@@ -66,7 +69,7 @@ const createCatCards = (array) => {
         const clientId = data.clientId;
 
 
-        // gets client's name using the client id we grabbed from the cat
+        // gets client's name using the client id we grabbed from the appointment
         async function getClientName(clientId) {
             await fetch(`${catConfig.baseUrl}/clients/${clientId}`, {
                 method: "GET",
@@ -74,38 +77,37 @@ const createCatCards = (array) => {
             })
                 .then(response => response.json())
                 .then(data => {
-                    // save client's name into variables
-                    const firstName = data.firstName;
-                    const lastName = data.lastName;
+                    const firstName = data.firstName
+                    const lastName = data.lastName
 
 
-                    // append all of the appointment info to the cards on appointments.html
-                    const catCard = document.createElement("div")
+                    // append all of the cat info to the cards on cats.html
+                    let catCard = document.createElement("div")
 
                     catCard.classList.add("cat")
                     catCard.innerHTML = `
-                    <div class="cat-card">
-                         <ul class="cat-styling">
-                              <li class="cat-styling">${name}</li>
-                              <li class="cat-styling extra-padding">${firstName} ${lastName}</li>
-                              <li style="width: 100px">${gender}</li>
-                              <li style="width: 75px">${altered}</li>
-                              <li class="cat-styling">${vaccine}</li>
-                              <li class="cat-styling" onclick="handleDeleteCat(${catId})">delete</text></li>
-                         </ul>
-                    </div>`
+                                    <div class="cat-card">
+                                         <ul class="cat-styling">
+                                              <li class="cat-styling">${name}</li>
+                                              <li class="cat-styling">${firstName + " " + lastName}</li>
+                                              <li class="cat-styling">${gender}</li>
+                                              <li class="cat-styling">${altered}</li>
+                                              <li class="cat-styling">${vaccine}</li>
+                                              <li><text class="delete-note" onclick="handleDeleteCat(${catId})">delete</text></li>
+                                         </ul>
+                                    </div>`
 
                     catContainer.append(catCard);
                 })
-                //.catch(err => console.error(err))
+
         }
+
         getClientName(clientId)
 
     })
-    //.catch(err => console.error(err))
+
 }
 
-findAllCats()
 
 
 
