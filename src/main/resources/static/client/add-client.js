@@ -17,7 +17,7 @@ const clientConfig = {
 
 
 // Pulls add client form from add-client.html
-const addClientForm = document.getElementById('add-appointment-form')
+const addClientForm = document.getElementById('add-client-form')
 
 // add client
 const handleSubmit = async (e) =>{
@@ -50,3 +50,14 @@ const handleSubmit = async (e) =>{
 
 addClientForm.addEventListener("submit", handleSubmit)
 
+
+
+
+
+// Clears user cookies and logs out user
+function handleLogout(){
+    let c = document.cookie.split(";");
+    for(let i in c){
+        document.cookie = /^[^=]+/.exec(c[i])[0]+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
+    }
+}
