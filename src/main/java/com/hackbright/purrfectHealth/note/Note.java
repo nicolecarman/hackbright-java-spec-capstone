@@ -8,19 +8,12 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-// @Entity: tells Spring that this class is being mapped to a data source
-// @Table: set what table you want these objects to be mapped to
-// @Data, @AllArgsConstructor, and @NoArgsConstructor creates our getters, setters, and constructors (Lombok)
-// NOTE: @Data can have memory overhead issues in large applications, but for this it's fine
 @Entity
 @Table(name = "Notes")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Note {
-    // give our class an Id, as well as define what kind of strategy we want to use to generate those Id’s.
-    // Add the @Id annotation as well as the @GeneratedValue annotation with the strategy option defined as
-    // the GenerationType.IDENTITY to a private member variable called “user_id” and is of type “Long”
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

@@ -57,14 +57,4 @@ public class AppointmentServiceImpl implements AppointmentService {
         Optional<Appointment> appointmentOptional = appointmentRepository.findById(appointmentId);
         appointmentOptional.ifPresent(appointment -> appointmentRepository.delete(appointment));
     }
-
-
-
-    // update an appointment
-    @Override
-    @Transactional
-    public AppointmentDto updateAppointmentById(AppointmentDto appointmentDto) {
-        Appointment appointment = new Appointment(appointmentDto);
-        return new AppointmentDto(appointmentRepository.saveAndFlush(appointment));
-    }
 }

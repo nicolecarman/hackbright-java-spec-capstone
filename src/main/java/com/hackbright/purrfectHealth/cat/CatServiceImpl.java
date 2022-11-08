@@ -34,8 +34,6 @@ public class CatServiceImpl implements CatService {
 
 
 
-
-
     // finds cat by id
     @Override
     public CatDto findCat(Long id) {
@@ -54,6 +52,7 @@ public class CatServiceImpl implements CatService {
         List<Cat> catList = catRepository.findAll();
         return catList.stream().map(cat -> new CatDto(cat)).collect(Collectors.toList());
     }
+
 
 
     // delete a cat

@@ -22,9 +22,6 @@ public class NoteServiceImpl implements NoteService {
 
 
     // add a note
-    // @Transactional should be used any time you're saving something to the database to ensure the transaction
-    // that gets opened with our datasource gets resolved
-    // QUESTION: what's our datasource in this case?
     @Override
     @Transactional
     public void addNote(NoteDto noteDto, Long userId) {

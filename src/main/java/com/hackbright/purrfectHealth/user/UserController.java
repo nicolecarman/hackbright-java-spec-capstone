@@ -30,7 +30,7 @@ public class UserController {
 
 
 
-    // This logs in a user
+    // logs in a user
     @PostMapping("/login")
     public List<String> userLogin(@RequestBody UserDto userDto){
         return userService.userLogin(userDto);

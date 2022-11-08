@@ -18,9 +18,7 @@ public class UserServiceImpl implements UserService {
 
 
 
-    // method for user registration
-    // any time you are saving something to the database, you should include the @Transactional annotation,
-    // which ensures that the transaction that gets opened with your datasource gets resolved
+    // user registration
     @Override
     @Transactional
     public List<String> addUser(UserDto userDto){
@@ -33,18 +31,14 @@ public class UserServiceImpl implements UserService {
 
 
 
-    // method for user authentication
+    // user authentication
     @Override
     public List<String> userLogin(UserDto userDto) {
         List<String> response = new ArrayList<>();
 
-        // Optionals are a way to avoid null pointer exceptions, which will break code and crash the app.
-        // We can think of Optionals as a box, and the box can be either empty or have something in it.
-        // The compiler doesn't care if it's empty or full -- it just needs to know it's a box.
         Optional<User> userOptional = userRepository.findByUsername(userDto.getUsername());
 
-        // We can perform conditional logic and check to see if â€œuserOptionalâ€ is present by using the â€œisPresentâ€ method
-        // available with Optionals. After we know itâ€™s present, we can check if the password matches the hash.
+
         if (userOptional.isPresent()){
             if (passwordEncoder.matches(userDto.getPassword(), userOptional.get().getPassword())){
                 response.add("http://localhost:8080/dashboard.html");

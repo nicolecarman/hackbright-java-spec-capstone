@@ -16,10 +16,4 @@ public interface AppointmentService {
     // delete a note
     @Transactional
     void deleteAppointmentById(Long appointmentId);
-
-
-    // update a note
-    @Transactional
-    AppointmentDto updateAppointmentById(AppointmentDto appointmentDto);
-
 }
