@@ -29,6 +29,7 @@ const handleSubmit = async (e) =>{
         address: document.getElementById('client-address').value,
         city: document.getElementById('client-city').value,
         state: document.getElementById('client-state').value,
+        zipcode: document.getElementById('client-zipcode').value,
         phone: document.getElementById('client-number').value,
         email: document.getElementById('client-email').value
     }
