@@ -57,9 +57,9 @@
     padding-right: 60px;
 }
 .appointment-card {
-    margin-left: 225px;
+    margin-left: 150px;
     border: 1px #F0F0F0 solid;
-    max-width: 70%;
+    max-width: 80%;
     font-size: 17px;
 }
 .appointment-styling, .appointment-styling ul {

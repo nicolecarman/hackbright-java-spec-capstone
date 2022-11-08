@@ -120,7 +120,7 @@ const createAppointmentCards = (array) => {
                                               <li class="appointment-styling">${time}</li>
                                               <li class="appointment-styling" style="padding-right: 40px">${type}</li>
                                               <li class="appointment-styling">${name}</li>
-                                              <li class="appointment-styling" style="padding-right: 40px">${firstName + " " + lastName}</li>
+                                              <li style="width: 140px; padding-right: 40px">${firstName + " " + lastName}</li>
                                               <li><text class="delete" onclick="handleDeleteAppointment(${appointmentId})">delete</text></li>
                                          </ul>
                                     </div>`
