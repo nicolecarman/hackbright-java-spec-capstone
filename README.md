@@ -24,7 +24,9 @@ This is my final capstone project for the Hackbright x Optum cohort. My full-sta
 
 
 #### User Dashboard
-- Upon successful login, the user is taken to a dashboard that displays a welcome message with their first name, several upcoming appointments, a sidebar with quick links to add a new appointment, client (pet owners), or cat, and an area in the sidebar where they can create, view all, and delete notes for themselves. Note: The screenshot below does not show the entire page. The field to add a note is not shown.
+- Upon successful login, the user is taken to a dashboard that displays a welcome message with their first name, several upcoming appointments, a sidebar with quick links to add a new appointment, client (pet owners), or cat, and an area in the sidebar where they can create, view all, and delete notes for themselves.
+
+Note: The screenshot below does not show the entire page. The field to add a note is not shown.
 
 ![screenshot of dashboard](/screenshots/dashboard.png)
 
