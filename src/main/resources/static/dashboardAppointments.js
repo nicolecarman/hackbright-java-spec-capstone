@@ -31,11 +31,26 @@ const createUpcomingAppointmentCards = (array) => {
 
     for (let i = 0; i < upcomingAppointments.length; i++) {
     // save appointment info to variables
-    const date = upcomingAppointments[i].date;
-    const time = upcomingAppointments[i].time;
-    const type = upcomingAppointments[i].type;
-    const clientId = upcomingAppointments[i].clientId;
-    const catId = upcomingAppointments[i].catId;
+    const date = new Date(upcomingAppointments[i].date).toLocaleDateString()
+    const prevTime = upcomingAppointments[i].time
+    const type = upcomingAppointments[i].type
+    const clientId = upcomingAppointments[i].clientId
+    const catId = upcomingAppointments[i].catId
+
+        // convert time from 24hr to 12hr
+        const convertTime = (time) => {
+            let hour = (time.split(':'))[0]
+            let min = (time.split(':'))[1]
+            let part = hour > 12 ? 'pm' : 'am';
+
+            min = (min+'').length == 1 ? `0${min}` : min;
+            hour = hour > 12 ? hour - 12 : hour;
+            hour = (hour+'').length == 1 ? `0${hour}` : hour;
+
+            return (`${hour}:${min} ${part}`)
+        }
+
+        const time = convertTime(prevTime)
 
 
         // gets client's name using the client id we grabbed from the appointment
@@ -71,10 +86,10 @@ const createUpcomingAppointmentCards = (array) => {
                                 appointmentCard.innerHTML = `
                                 <div class="dashboard-appointment-card">
                                     <ul style="padding-left: 10px">
-                                        <li class="appointment-styling">${date}</li>
-                                        <li class="extra-padding">${time}</li>
-                                        <li class="appointment-styling">${type}</li>
-                                        <li class="extra-padding">${firstName} ${lastName}</li>
+                                        <li style="font-size: 16px; width: 80px;">${date}</li>
+                                        <li style="font-size: 16px; padding-right: 30px">${time}</li>
+                                        <li style="font-size: 16px; width: 110px;">${type}</li>
+                                        <li class="appointment-styling" style="padding-right: 25px">${firstName} ${lastName}
                                         <li class="appointment-styling">${catName}</li>
                                     </ul>
                                 </div>`

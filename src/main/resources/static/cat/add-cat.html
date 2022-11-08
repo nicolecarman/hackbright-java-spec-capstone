@@ -66,26 +66,31 @@
             </div><br><br>
 
             <div class="form-group">
-                <input type="radio" id="cat-male" name="cat-gender" value="Male">
-                <label class="form-check-label" for="cat-male">Male</label><br>
+                <input type="radio" id="cat-male" name="cat-gender" value="M">
+                <label class="form-check-label" for="cat-male">M</label><br>
 
-                <input type="radio" id="cat-female" name="cat-gender" value="Female">
-                <label class="form-check-label" for="cat-female">Female</label><br>
+                <input type="radio" id="cat-female" name="cat-gender" value="F">
+                <label class="form-check-label" for="cat-female">F</label><br>
             </div><br>
 
             <div class="form-group">
                 <p>Altered?</p>
-                <input type="radio" id="cat-altered" name="cat-altered" value="Yes">
-                <label class="form-check-label" for="cat-altered">Yes</label><br>
+                <input type="radio" id="cat-altered" name="cat-altered" value="Y">
+                <label class="form-check-label" for="cat-altered">Y</label><br>
 
-                <input type="radio" id="cat-notaltered" name="cat-altered" value="No">
-                <label class="form-check-label" for="cat-altered">No</label><br>
+                <input type="radio" id="cat-notaltered" name="cat-altered" value="N">
+                <label class="form-check-label" for="cat-altered">N</label><br>
             </div><br>
 
             <div class="form-row">
                 <label for="cat-vaccine" style="padding-right: 10px">Last vaccinated</label>
                 <input type="date" id="cat-vaccine" name="cat-vaccine" required>
             </div><br><br>
+
+            <div class="form-group">
+                <label for="cat-note">Notes</label>
+                <textarea class="form-control" id="cat-note" rows="3" placeholder="Please include any notes or relevant details about this cat (if needed)."></textarea>
+            </div><br>
 
             <div class="mt-1">
                 <button id="submit-button" type="submit" class="btn btn-info">Submit</button>

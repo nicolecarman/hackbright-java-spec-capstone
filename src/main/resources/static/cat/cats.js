@@ -61,13 +61,17 @@ const createCatCards = (array) => {
     catContainer.innerHTML = ''
 
     array.forEach(data => {
-        const catId = data.id;
-        const name = data.name;
-        const gender = data.gender;
-        const altered = data.altered;
-        const vaccine = data.vaccine;
-        const clientId = data.clientId;
-        console.log(clientId)
+        const catId = data.id
+        const name = data.name
+        const age = data.age
+        const gender = data.gender
+        const breed = data.breed
+        const pattern = data.pattern
+        const color = data.color
+        const altered = data.altered
+        const vaccine = new Date(data.vaccine).toLocaleDateString()
+        const notes = data.notes
+        const clientId = data.clientId
 
 
         // gets client's name using the client id we grabbed from the appointment
@@ -89,11 +93,16 @@ const createCatCards = (array) => {
                     catCard.innerHTML = `
                                     <div class="cat-card">
                                          <ul class="cat-styling">
-                                              <li class="cat-styling">${name}</li>
-                                              <li class="cat-styling">${firstName + " " + lastName}</li>
-                                              <li class="cat-styling">${gender}</li>
-                                              <li class="cat-styling">${altered}</li>
-                                              <li class="cat-styling">${vaccine}</li>
+                                              <li style="font-size: 17px; width: 100px; padding-right:0">${name}</li>
+                                              <li style="font-size: 17px; width: 30px; padding-right: 15px">${age}</li>
+                                              <li style="font-size: 17px; width: 30px; padding-right: 15px">${gender}</li>
+                                              <li style="font-size: 17px; width: 100px; padding-right: 10px">${breed}</li>
+                                              <li style="font-size: 17px; width: 75px; padding-right: 10px;">${pattern}</li>
+                                              <li style="font-size: 17px; width: 100px;">${color}</li>
+                                              <li style="font-size: 17px; width: 30px; padding: 20px">${altered}</li>
+                                              <li style="font-size: 17px; width: 100px; padding-right: 10px">${vaccine}</li>
+                                              <li style="font-size: 17px; width: 150px;">${firstName + " " + lastName}</li><br>
+                                              <li style="font-size: 17px">Notes: ${notes}</li>
                                               <li><text class="delete" onclick="handleDeleteCat(${catId})">delete</text></li>
                                          </ul>
                                     </div>`

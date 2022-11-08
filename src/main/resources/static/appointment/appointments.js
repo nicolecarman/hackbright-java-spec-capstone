@@ -64,10 +64,26 @@ const createAppointmentCards = (array) => {
     array.forEach(data => {
         const appointmentId = data.id
         const date = new Date(data.date).toLocaleDateString()
-        const time = new Date(data.time).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+        const prevTime = data.time
         const type = data.type
         const clientId = data.clientId
         const catId = data.catId
+
+
+        // convert time from 24hr to 12hr
+        const convertTime = (time) => {
+            let hour = (time.split(':'))[0]
+            let min = (time.split(':'))[1]
+            let part = hour > 12 ? 'pm' : 'am';
+
+            min = (min+'').length == 1 ? `0${min}` : min;
+            hour = hour > 12 ? hour - 12 : hour;
+            hour = (hour+'').length == 1 ? `0${hour}` : hour;
+
+            return (`${hour}:${min} ${part}`)
+        }
+
+        const time = convertTime(prevTime)
 
 
         // gets client's name using the client id we grabbed from the appointment
@@ -102,9 +118,9 @@ const createAppointmentCards = (array) => {
                                          <ul class="appointment-styling">
                                               <li class="appointment-styling">${date}</li>
                                               <li class="appointment-styling">${time}</li>
-                                              <li class="appointment-styling">${type}</li>
-                                              <li class="appointment-styling">${firstName + " " + lastName}</li>
+                                              <li class="appointment-styling" style="padding-right: 40px">${type}</li>
                                               <li class="appointment-styling">${name}</li>
+                                              <li class="appointment-styling" style="padding-right: 40px">${firstName + " " + lastName}</li>
                                               <li><text class="delete" onclick="handleDeleteAppointment(${appointmentId})">delete</text></li>
                                          </ul>
                                     </div>`

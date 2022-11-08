@@ -1,5 +1,7 @@
 .content {
-
+    margin-top: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
 }
 /* grid settings (for main and aside) */
 .layout-container {
@@ -66,7 +68,7 @@ aside {
 }
 .appointment-styling {
     display: inline-block;
-    width: 110px;
+    width: 125px;
     font-size: 16px;
 }
 .extra-padding {

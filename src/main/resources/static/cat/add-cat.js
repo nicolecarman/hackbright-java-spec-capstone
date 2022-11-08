@@ -32,6 +32,7 @@ const handleSubmit = async (e) =>{
         gender: document.querySelector('input[name="cat-gender"]:checked').value,
         altered: document.querySelector('input[name="cat-altered"]:checked').value,
         vaccine: document.getElementById('cat-vaccine').value,
+        notes: document.getElementById('cat-note').value,
         clientId: document.getElementById('client-cat-selection').value
     }
 

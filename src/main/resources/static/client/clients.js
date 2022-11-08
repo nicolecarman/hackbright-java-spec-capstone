@@ -81,8 +81,8 @@ const createClientCards = (array) => {
         clientCard.innerHTML = `
             <div class="client-card">
                  <ul>
-                      <li style="client-styling; font-size: 17px">${lastName}, ${firstName}</li>
-                      <li class="client-styling" style="font-size: 17px">${address}</li>
+                      <li style="font-size: 17px">${lastName}, ${firstName}</li>
+                      <li style="padding-right: 40px; font-size: 17px">${address}</li>
                       <li style="padding-right: 35px; font-size: 17px">${city}</li>
                       <li style="25px; font-size: 17px">${state}</li>
                       <li style="30px; font-size: 17px">${zipcode}</li>
@@ -95,7 +95,6 @@ const createClientCards = (array) => {
         clientContainer.append(clientCard);
     })
 }
-
 
 
 

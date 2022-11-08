@@ -29,7 +29,7 @@ public class Cat {
     // Add the @Id annotation as well as the @GeneratedValue annotation with the strategy option defined as
     // the GenerationType.IDENTITY to a private member variable called “user_id” and is of type “Long”
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
@@ -55,6 +55,8 @@ public class Cat {
 
     @Column
     private String vaccine;
+    @Column(columnDefinition = "varchar(500)")
+    private String notes;
 
 
 
@@ -84,6 +86,9 @@ public class Cat {
         }
         if (catDto.getVaccine() != null) {
             this.vaccine = catDto.getVaccine();
+        }
+        if (catDto.getNotes() != null) {
+            this.notes = catDto.getNotes();
         }
     }
 

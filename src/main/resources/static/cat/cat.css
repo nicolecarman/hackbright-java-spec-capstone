@@ -1,3 +1,7 @@
+.content {
+    margin-top: 50px;
+}
+
 /* begin add-cat.html */
 .cat-form-container {
     position: relative;
@@ -47,7 +51,7 @@
     cursor: pointer;
 }
 .cat-card-header {
-    margin-left: 228px;
+    margin-left: 190px;
 }
 .header-styling {
     padding-right: 60px;
@@ -56,16 +60,11 @@
     margin-left: 150px;
     border: 1px #F0F0F0 solid;
     max-width: 80%;
-    font-size: 17px;
+    font-size: 16px;
 }
 .cat-styling, .cat-styling ul {
     display: inline-block;
-}
-.cat-styling li {
-    width: 120px;
-}
-.extra-padding {
-    padding-right: 50px;
+    padding-inline-start: 40px;
 }
 .cat-styling > li:last-child {
     color: #FF3333;

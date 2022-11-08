@@ -1,3 +1,7 @@
+.content {
+    margin-top: 50px;
+}
+
 /* begin add-appointment.html */
 .appointment-form-container {
     position: relative;
@@ -47,7 +51,7 @@
     cursor: pointer;
 }
 .appointment-card-header {
-    margin-left: 228px;
+    margin-left: 150px;
 }
 .header-styling {
     padding-right: 60px;
@@ -71,7 +75,7 @@
     color: #FF3333;
     text-decoration: underline;
     cursor: pointer;
-    right: 15%;
+    right: 20%;
     position: absolute;
 }
 .delete {

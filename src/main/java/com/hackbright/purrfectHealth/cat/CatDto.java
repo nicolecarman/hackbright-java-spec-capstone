@@ -19,6 +19,7 @@ public class CatDto implements Serializable {
     private String color;
     private String altered;
     private String vaccine;
+    private String notes;
     private Long clientId;
 
 
@@ -52,6 +53,9 @@ public class CatDto implements Serializable {
         }
         if (cat.getVaccine() != null) {
             this.vaccine = cat.getVaccine();
+        }
+        if (cat.getNotes() != null) {
+            this.notes = cat.getNotes();
         }
         if (cat.getClient().getId() != null) {
             this.clientId = cat.getClient().getId();

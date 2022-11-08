@@ -25,7 +25,7 @@ public class User {
     // Add the @Id annotation as well as the @GeneratedValue annotation with the strategy option defined as
     // the GenerationType.IDENTITY to a private member variable called “user_id” and is of type “Long”
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(unique = true)
