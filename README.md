@@ -3,6 +3,7 @@
 
 This is my final capstone project for the Hackbright x Optum cohort. My full-stack web application, PurrfectHealth, is a management system for a veterinary clinic that specializes in feline health. It's a user-friendly system that helps the vet staff keep track of clients and their cats.
 
+Please note: None of the screenshots included in this ReadMe are of actual size.
 
 ## Tech stack
 - HTML
