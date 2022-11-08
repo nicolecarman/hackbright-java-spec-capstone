@@ -20,7 +20,7 @@ This is my final capstone project for the Hackbright x Optum cohort. My full-sta
 #### Login and Register
 - Vet staff (users) can register an account, login, and logout of the system.
 
-<img src="https://github.com/nicolecarman/hackbright-java-spec-capstone/blob/main/screenshots/login.png" alt="login page" height="500px">&nbsp;<img src="https://github.com/nicolecarman/hackbright-java-spec-capstone/blob/main/screenshots/register.png" alt="register page" height="500px">
+<img src="https://github.com/nicolecarman/hackbright-java-spec-capstone/blob/main/screenshots/login.png" alt="login page" height="400px">&nbsp;<img src="https://github.com/nicolecarman/hackbright-java-spec-capstone/blob/main/screenshots/register.png" alt="register page" height="500px">
 
 
 #### User Dashboard
