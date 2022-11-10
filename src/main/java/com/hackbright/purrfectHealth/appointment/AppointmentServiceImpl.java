@@ -23,7 +23,6 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 
 
-    // add appointment
     @Override
     @Transactional
     public AppointmentDto addAppointment(AppointmentDto appointmentDto) {
@@ -40,9 +39,6 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 
 
-    // GET all appointments
-    // The method for finding all appointments is a bit more complicated, and it requires you to stream
-    // the List<Appointment> that gets returned from the repository into their AppointmentDto counterparts to be sent out.
     public List<AppointmentDto> findAllAppointments(AppointmentDto appointmentDto) {
         List<Appointment> appointmentList = appointmentRepository.findAll();
         return appointmentList.stream().map(appointment -> new AppointmentDto(appointment)).collect(Collectors.toList());
@@ -50,7 +46,6 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 
 
-    // delete an appointment
     @Override
     @Transactional
     public void deleteAppointmentById(Long appointmentId) {

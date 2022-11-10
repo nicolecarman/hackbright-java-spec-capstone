@@ -1,11 +1,9 @@
-// cookie to read in order to get the logged in user's id
-// logout method will clear the cookie
 const cookieArr = document.cookie.split("=")
 const userId = cookieArr[1];
 
 
 
-// base url and header
+
 const catConfig = {
     baseUrl:'http://localhost:8080/api',
     headers: {
@@ -15,14 +13,14 @@ const catConfig = {
 
 
 
-// ADD CAT BUTTON on cats.html
+
 const addCatBtn = document.getElementById('add-cat-btn')
 
-// change mouseover colors
+
 addCatBtn.addEventListener("mouseover", mouseover)
 addCatBtn.addEventListener("mouseout", mouseout)
 
-// functions to change mouseover and mouseout colors
+
 function mouseover() {
     addCatBtn.setAttribute("style", "background-color:#546A7B")
 }
@@ -31,7 +29,7 @@ function mouseout() {
     addCatBtn.setAttribute("style", "background-color:#62929E")
 }
 
-// redirects user to add-cat.html
+
 addCatBtn.addEventListener("click", function() {
     document.location.href = 'add-cat.html'
 })
@@ -39,7 +37,7 @@ addCatBtn.addEventListener("click", function() {
 
 
 
-// GET ALL CATS for cats.html
+
 const catContainer = document.getElementById("cat-container")
 
 async function findAllCats() {
@@ -74,7 +72,6 @@ const createCatCards = (array) => {
         const clientId = data.clientId
 
 
-        // gets client's name using the client id we grabbed from the appointment
         async function getClientName(clientId) {
             await fetch(`${catConfig.baseUrl}/clients/${clientId}`, {
                 method: "GET",
@@ -86,7 +83,6 @@ const createCatCards = (array) => {
                     const lastName = data.lastName
 
 
-                    // append all of the cat info to the cards on cats.html
                     let catCard = document.createElement("div")
 
                     catCard.classList.add("cat")
@@ -120,7 +116,6 @@ const createCatCards = (array) => {
 
 
 
-// deletes a cat
 async function handleDeleteCat(catId){
     await fetch(`${catConfig.baseUrl}/cats/` + catId, {
         method: "DELETE",
@@ -134,7 +129,7 @@ async function handleDeleteCat(catId){
 
 
 
-// Clears user cookies and logs out user
+
 function handleLogout(){
     let c = document.cookie.split(";");
     for(let i in c){

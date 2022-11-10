@@ -23,8 +23,6 @@ public class ClientDto implements Serializable {
 
 
     public ClientDto(Client client) {
-        // if the values received are NOT null (excluding client_id),
-        // they will be saved to the appropriate variable
         if (client.getId() != null) {
             this.id = client.getId();
         }

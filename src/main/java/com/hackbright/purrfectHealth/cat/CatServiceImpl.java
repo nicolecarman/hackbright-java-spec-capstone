@@ -20,7 +20,6 @@ public class CatServiceImpl implements CatService {
 
 
 
-    // add cat
     @Override
     @Transactional
     public CatDto addCat(CatDto catDto) {
@@ -34,28 +33,26 @@ public class CatServiceImpl implements CatService {
 
 
 
-    // finds cat by id
     @Override
     public CatDto findCat(Long id) {
         Cat cat = catRepository.findById(id).get();
 
-        // constructor
         CatDto catDto = new CatDto(cat);
+
         return catDto;
     }
 
 
 
     @Override
-    // GET all cats
     public List<CatDto> findAllCats(CatDto catDto) {
         List<Cat> catList = catRepository.findAll();
+
         return catList.stream().map(cat -> new CatDto(cat)).collect(Collectors.toList());
     }
 
 
 
-    // delete a cat
     @Override
     @Transactional
     public void deleteCatById(Long catId) {

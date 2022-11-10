@@ -10,13 +10,10 @@ import java.util.Optional;
 @RequestMapping("/api/notes")
 public class NoteController {
     @Autowired
-    // I don't understand this line of code. "NoteService" is the note
-    // service interface we made. No idea what interface does here.
     private NoteService noteService;
 
 
 
-    // add a note
     @PostMapping("/user/{userId}")
     public void addNote(@RequestBody NoteDto noteDto, @PathVariable Long userId) {
         noteService.addNote(noteDto, userId);
@@ -24,7 +21,6 @@ public class NoteController {
 
 
 
-    // delete a note
     @DeleteMapping("/{noteId}")
     public void deleteNoteById(@PathVariable Long noteId) {
         noteService.deleteNoteById(noteId);
@@ -32,7 +28,6 @@ public class NoteController {
 
 
 
-    // update a note
     @PutMapping
     public void updateNote(@RequestBody NoteDto noteDto) {
         noteService.updateNoteById(noteDto);
@@ -40,7 +35,6 @@ public class NoteController {
 
 
 
-    // find all notes by user id
     @GetMapping("/user/{userId}")
     public List<NoteDto> getNotesByUser(@PathVariable Long userId) {
         return noteService.getAllNotesByUserId(userId);
@@ -48,7 +42,6 @@ public class NoteController {
 
 
 
-    // get a note by note id
     @GetMapping("/{noteId}")
     public Optional<NoteDto> getNoteById(@PathVariable Long noteId) {
         return noteService.getNoteById(noteId);

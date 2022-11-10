@@ -17,7 +17,6 @@ public class ClientController {
 
 
 
-    // Add client
     @PostMapping("/add-client")
     public void addClient(@RequestBody ClientDto clientDto) {
         clientService.addClient(clientDto);
@@ -25,7 +24,6 @@ public class ClientController {
 
 
 
-    // GET all clients
     @GetMapping
     public List<ClientDto> findAllClients(ClientDto clientDto) {
         return clientService.findAllClients(clientDto);
@@ -33,8 +31,6 @@ public class ClientController {
 
 
 
-    // This finds all clients from client repository, adds them to a list, and returns them
-    // in the format created in client entities (getOptionFormat())
     @GetMapping(path="/options")
     public List<Map> htmlOptions() {
         List<Map> response = new LinkedList<>();
@@ -47,7 +43,6 @@ public class ClientController {
 
 
 
-    // finds client by id
     @GetMapping("/{clientId}")
     public ClientDto findClientById(@PathVariable Long clientId) {
         return clientService.findClientById(clientId);
@@ -55,7 +50,6 @@ public class ClientController {
 
 
 
-    // delete a client
     @DeleteMapping("/{clientId}")
     public void deleteClientById(@PathVariable Long clientId) {
         clientService.deleteClientById(clientId);

@@ -1,11 +1,8 @@
-// cookie to read in order to get the logged in user's id
-// logout method will clear the cookie
 const cookieArr = document.cookie.split("=")
 const userId = cookieArr[1];
 
 
 
-// base url and header
 const appointmentConfig = {
     baseUrl:'http://localhost:8080/api',
     headers: {
@@ -16,8 +13,6 @@ const appointmentConfig = {
 
 
 
-// gets DOM object (the client dropdown menu) and applies an event listener to the selection
-// that the user makes. In other words, it pulls the cats of whatever client the user clicks on
 const selectElement = document.getElementById('appointment-client-selection');
 
 selectElement.addEventListener('change', (event) => {
@@ -27,10 +22,9 @@ selectElement.addEventListener('change', (event) => {
 
 
 
-// Pulls add appointment form from add-appointment.html
 const addAppointmentForm = document.getElementById('add-appointment-form')
 
-// add appointment
+
 const handleSubmit = async (e) =>{
     e.preventDefault()
 
@@ -63,7 +57,6 @@ addAppointmentForm.addEventListener("submit", handleSubmit)
 
 
 
-// Clears user cookies and logs out user
 function handleLogout(){
     let c = document.cookie.split(";");
     for(let i in c){

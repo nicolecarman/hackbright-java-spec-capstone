@@ -1,11 +1,9 @@
-// cookie to read in order to get the logged in user's id
-// logout method will clear the cookie
 const cookieArr = document.cookie.split("=")
 const userId = cookieArr[1];
 
 
 
-// base url and header
+
 const clientConfig = {
     baseUrl:'http://localhost:8080/api',
     headers: {
@@ -16,10 +14,9 @@ const clientConfig = {
 
 
 
-// Pulls add client form from add-client.html
 const addClientForm = document.getElementById('add-client-form')
 
-// add client
+
 const handleSubmit = async (e) =>{
     e.preventDefault()
 
@@ -51,7 +48,6 @@ addClientForm.addEventListener("submit", handleSubmit)
 
 
 
-// Clears user cookies and logs out user
 function handleLogout(){
     let c = document.cookie.split(";");
     for(let i in c){

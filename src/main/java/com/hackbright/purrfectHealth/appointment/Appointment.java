@@ -30,9 +30,19 @@ public class Appointment {
 
 
 
+    @ManyToOne
+    @JsonBackReference
+    private Cat cat;
 
-    // constructor that accepts the associated DTO as an argument
-    // contains conditional logic to help prevent null pointer exceptions
+
+
+    @ManyToOne
+    @JsonBackReference
+    private Client client;
+
+
+
+
     public Appointment(AppointmentDto appointmentDto) {
         if (appointmentDto.getDate() != null) {
             this.date = appointmentDto.getDate();
@@ -47,23 +57,4 @@ public class Appointment {
             this.notes = appointmentDto.getNotes();
         }
     }
-
-
-
-
-    // @ManyToOne handles the table relationship to Cats by creating the association within Hibernate
-    // @JsonBackReference prevents infinite recursion when we deliver the resource up as JSON through
-    // our RESTful API endpoint
-    @ManyToOne
-    @JsonBackReference
-    private Cat cat;
-
-
-
-    // @ManyToOne handles the table relationship to Clients by creating the association within Hibernate
-    // @JsonBackReference prevents infinite recursion when we deliver the resource up as JSON through
-    // our RESTful API endpoint
-    @ManyToOne
-    @JsonBackReference
-    private Client client;
 }

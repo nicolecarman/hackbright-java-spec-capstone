@@ -18,20 +18,22 @@ public class UserServiceImpl implements UserService {
 
 
 
-    // user registration
     @Override
     @Transactional
     public List<String> addUser(UserDto userDto){
         List<String> response = new ArrayList<>();
+
         User user = new User(userDto);
+
         userRepository.saveAndFlush(user);
         response.add("http://localhost:8080/login.html");
+
         return response;
     }
 
 
 
-    // user authentication
+
     @Override
     public List<String> userLogin(UserDto userDto) {
         List<String> response = new ArrayList<>();
@@ -54,13 +56,12 @@ public class UserServiceImpl implements UserService {
 
 
 
-    // finds user by id
     @Override
     public UserDto findUser(Long id) {
         User user = userRepository.findById(id).get();
 
-        // constructor
         UserDto userDto = new UserDto(user);
+
         return userDto;
     }
 }

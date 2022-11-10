@@ -21,8 +21,6 @@ public class AppointmentDto implements Serializable {
 
 
     public AppointmentDto(Appointment appointment) {
-        // if the values received are NOT null (excluding appointment_id),
-        // they will be saved to the appropriate variable
         if (appointment.getId() != null) {
             this.id = appointment.getId();
         }

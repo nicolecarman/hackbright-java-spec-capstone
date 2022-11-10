@@ -34,8 +34,12 @@ public class User {
 
 
 
-    // constructor that accepts the associated DTO as an argument
-    // contains conditional logic to help prevent null pointer exceptions
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JsonManagedReference
+    private Set<Note> noteSet = new HashSet<>();
+
+
+
     public User(UserDto userDto) {
         if (userDto.getUsername() != null) {
             this.username = userDto.getUsername();
@@ -50,13 +54,4 @@ public class User {
             this.lastName = userDto.getLastName();
         }
     }
-
-
-
-    // @OneToMany is the other half of the relationship to Notes within Hibernate
-    // @JsonManagedReference to handle other half of mitigating infinite recursion when we
-    // deliver the resource up as JSON through our RESTful API endpoint
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JsonManagedReference
-    private Set<Note> noteSet = new HashSet<>();
 }

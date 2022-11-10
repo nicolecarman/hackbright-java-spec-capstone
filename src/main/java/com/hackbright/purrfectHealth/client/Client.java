@@ -48,8 +48,21 @@ public class Client {
 
 
 
-    // constructor that accepts the associated DTO as an argument
-    // contains conditional logic to help prevent null pointer exceptions
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JsonManagedReference
+    @ToString.Exclude
+    private Set<Cat> catSet = new HashSet<>();
+
+
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JsonManagedReference
+    @ToString.Exclude
+    private Set<Appointment> appointmentSet = new HashSet<>();
+
+
+
+
     public Client(ClientDto clientDto) {
         if (clientDto.getFirstName() != null) {
             this.firstName = clientDto.getFirstName();
@@ -79,40 +92,6 @@ public class Client {
 
 
 
-
-    // @OneToMany is the other half of the relationship to Cats within Hibernate
-    // @JsonManagedReference to handle other half of mitigating infinite recursion when we
-    // deliver the resource up as JSON through our RESTful API endpoint
-    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JsonManagedReference
-    @ToString.Exclude
-    // We are going to make use of a Java Data Structure called a Set to act as the container for our Cats.
-    // The reason we chose a Set is because each item within a Set is unique. This will prevent two copies of
-    // an Cat from being added in and taking up excess space in your application.
-    // NOTE: HAD TO ADD THE LINE OF CODE BELOW OR IT WOULDN'T ACCEPT THE ANNOTATIONS ABOVE.
-    // DOES IT MAKE SENSE TO HAVE A SET FOR A CLIENT'S CATS?
-    private Set<Cat> catSet = new HashSet<>();
-
-
-
-    // @OneToMany is the other half of the relationship to Appointments within Hibernate
-    // @JsonManagedReference to handle other half of mitigating infinite recursion when we
-    // deliver the resource up as JSON through our RESTful API endpoint
-    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JsonManagedReference
-    @ToString.Exclude
-    // We are going to make use of a Java Data Structure called a Set to act as the container for our Cats.
-    // The reason we chose a Set is because each item within a Set is unique. This will prevent two copies of
-    // an Cat from being added in and taking up excess space in your application.
-    // NOTE: HAD TO ADD THE LINE OF CODE BELOW OR IT WOULDN'T ACCEPT THE ANNOTATIONS ABOVE.
-    // DOES IT MAKE SENSE TO HAVE A SET FOR A CLIENT'S CATS?
-    private Set<Appointment> appointmentSet = new HashSet<>();
-
-
-
-    // client dropdown on add appointment form in add-appointment.html
-    // This is the format for our key value pairs from client table in database
-    // Using this in client controller to loop through data
     public Map getOptionFormat() {
         Map optionFormat = new LinkedHashMap();
 

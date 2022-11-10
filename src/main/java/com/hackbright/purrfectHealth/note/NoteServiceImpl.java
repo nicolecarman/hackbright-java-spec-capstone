@@ -21,7 +21,6 @@ public class NoteServiceImpl implements NoteService {
 
 
 
-    // add a note
     @Override
     @Transactional
     public void addNote(NoteDto noteDto, Long userId) {
@@ -33,7 +32,6 @@ public class NoteServiceImpl implements NoteService {
 
 
 
-    // delete a note
     @Override
     @Transactional
     public void deleteNoteById(Long noteId) {
@@ -43,7 +41,6 @@ public class NoteServiceImpl implements NoteService {
 
 
 
-    // update a note
     @Override
     @Transactional
     public void updateNoteById(NoteDto noteDto) {
@@ -56,14 +53,13 @@ public class NoteServiceImpl implements NoteService {
 
 
 
-    // find all notes by user id
-    // The method for finding all notes by User is a bit more complicated, and it requires you to stream
-    // the List<Note> that gets returned from the repository into their NoteDto counterparts to be sent out.
     @Override
     public List<NoteDto> getAllNotesByUserId(Long userId) {
         Optional<User> userOptional = userRepository.findById(userId);
+
         if (userOptional.isPresent()) {
             List<Note> noteList = noteRepository.findAllByUserEquals(userOptional.get());
+
             return noteList.stream().map(note -> new NoteDto(note)).collect(Collectors.toList());
         }
         return Collections.emptyList();
@@ -71,7 +67,6 @@ public class NoteServiceImpl implements NoteService {
 
 
 
-    // getting a note by note id
     @Override
     public Optional<NoteDto> getNoteById(Long noteId) {
         Optional<Note> noteOptional = noteRepository.findById(noteId);

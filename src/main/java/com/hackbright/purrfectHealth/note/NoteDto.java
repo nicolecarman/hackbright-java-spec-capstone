@@ -16,8 +16,6 @@ public class NoteDto implements Serializable {
 
 
     public NoteDto(Note note) {
-        // if the values received are NOT null (excluding note_id),
-        // they will be saved to the appropriate variable
         if (note.getId() != null) {
             this.id = note.getId();
         }

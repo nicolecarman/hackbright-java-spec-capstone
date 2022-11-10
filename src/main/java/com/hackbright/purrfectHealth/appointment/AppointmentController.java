@@ -13,7 +13,6 @@ public class AppointmentController {
 
 
 
-    // GET all appointments
     @GetMapping
     public List<AppointmentDto> findAllAppointments(AppointmentDto appointmentDto) {
         return appointmentService.findAllAppointments(appointmentDto);
@@ -21,7 +20,6 @@ public class AppointmentController {
 
 
 
-    // Add appointment
     @PostMapping("/add-appointment")
     public AppointmentDto addAppointment(@RequestBody AppointmentDto appointmentDto) {
         return appointmentService.addAppointment(appointmentDto);
@@ -29,7 +27,6 @@ public class AppointmentController {
 
 
 
-    // delete an appointment
     @DeleteMapping("/{appointmentId}")
     public void deleteAppointmentById(@PathVariable Long appointmentId) {
         appointmentService.deleteAppointmentById(appointmentId);

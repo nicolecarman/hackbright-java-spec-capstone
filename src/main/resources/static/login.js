@@ -1,9 +1,7 @@
-// we need to store all of our different inputs into a variable so that we can reuse the info later
 let loginForm = document.getElementById('login-form')
 
 
 
-// base url and header
 const loginConfig = {
     baseUrl:'http://localhost:8080/api/users',
     headers: {
@@ -13,7 +11,7 @@ const loginConfig = {
 
 
 
-// handles form submission
+
 const handleSubmit = async (e) =>{
     e.preventDefault()
 

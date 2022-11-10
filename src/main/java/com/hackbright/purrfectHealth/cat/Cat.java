@@ -48,13 +48,25 @@ public class Cat {
 
     @Column
     private String vaccine;
+
     @Column(columnDefinition = "varchar(500)")
     private String notes;
 
 
 
-    // constructor that accepts the associated DTO as an argument
-    // contains conditional logic to help prevent null pointer exceptions
+    @OneToMany(mappedBy = "cat", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JsonManagedReference
+    private Set<Appointment> appointmentSet = new HashSet<>();
+
+
+
+    @ManyToOne
+    @JsonBackReference
+    private Client client;
+
+
+
+
     public Cat(CatDto catDto) {
         if (catDto.getName() != null) {
             this.name = catDto.getName();
@@ -87,8 +99,6 @@ public class Cat {
 
 
 
-    // This is the format for our key value pairs from client table in database
-    // Using this in client controller to loop through data
     public Map getOptionFormat() {
         Map optionFormat = new LinkedHashMap();
 
@@ -97,27 +107,4 @@ public class Cat {
 
         return optionFormat;
     }
-
-
-
-    // @OneToMany is the other half of the relationship to Appointments within Hibernate
-    // @JsonManagedReference to handle other half of mitigating infinite recursion when we
-    // deliver the resource up as JSON through our RESTful API endpoint
-    @OneToMany(mappedBy = "cat", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JsonManagedReference
-    // We are going to make use of a Java Data Structure called a Set to act as the container for our Appointments.
-    // The reason we chose a Set is because each item within a Set is unique. This will prevent two copies of
-    // an Appointment from being added in and taking up excess space in your application.
-    // NOTE: HAD TO ADD THE LINE OF CODE BELOW OR IT WOULDN'T ACCEPT THE ANNOTATIONS ABOVE.
-    // DO I NEED THIS LINE OF CODE IN BOTH USERS AND CATS (CLASSES IN ENTITIES)?
-    private Set<Appointment> appointmentSet = new HashSet<>();
-
-
-
-    // @ManyToOne handles the table relationship to Clients by creating the association within Hibernate
-    // @JsonBackReference prevents infinite recursion when we deliver the resource up as JSON through
-    // our RESTful API endpoint
-    @ManyToOne
-    @JsonBackReference
-    private Client client;
 }

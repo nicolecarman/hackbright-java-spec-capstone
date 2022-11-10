@@ -1,4 +1,3 @@
-// base url and header
 const dashboardAppointmentConfig = {
     baseUrl:'http://localhost:8080/api',
     headers: {
@@ -8,7 +7,7 @@ const dashboardAppointmentConfig = {
 
 
 
-// GET ALL APPOINTMENTS for appointments.html
+
 const dashboardAppointmentContainer = document.getElementById("dashboard-appointment-container")
 
 async function findUpcomingAppointments() {
@@ -30,14 +29,13 @@ const createUpcomingAppointmentCards = (array) => {
     let upcomingAppointments = array.slice(0, 5)
 
     for (let i = 0; i < upcomingAppointments.length; i++) {
-    // save appointment info to variables
-    const date = new Date(upcomingAppointments[i].date).toLocaleDateString()
-    const prevTime = upcomingAppointments[i].time
-    const type = upcomingAppointments[i].type
-    const clientId = upcomingAppointments[i].clientId
-    const catId = upcomingAppointments[i].catId
+        const date = new Date(upcomingAppointments[i].date).toLocaleDateString()
+        const prevTime = upcomingAppointments[i].time
+        const type = upcomingAppointments[i].type
+        const clientId = upcomingAppointments[i].clientId
+        const catId = upcomingAppointments[i].catId
 
-        // convert time from 24hr to 12hr
+
         const convertTime = (time) => {
             let hour = (time.split(':'))[0]
             let min = (time.split(':'))[1]
@@ -53,7 +51,7 @@ const createUpcomingAppointmentCards = (array) => {
         const time = convertTime(prevTime)
 
 
-        // gets client's name using the client id we grabbed from the appointment
+
         async function getClientName(clientId) {
             await fetch(`${dashboardAppointmentConfig.baseUrl}/clients/${clientId}`, {
                 method: "GET",
@@ -61,12 +59,10 @@ const createUpcomingAppointmentCards = (array) => {
             })
                 .then(response => response.json())
                 .then(data => {
-                    // save client's name into variables
                     const firstName = data.firstName;
                     const lastName = data.lastName;
 
 
-                    // gets cat's name using the cat id we grabbed from the appointment
                     async function getCatName(catId) {
                         await fetch(`${dashboardAppointmentConfig.baseUrl}/cats/${catId}`, {
                             method: "GET",
@@ -74,12 +70,9 @@ const createUpcomingAppointmentCards = (array) => {
                         })
                             .then(response => response.json())
                             .then(data => {
-
-                                // save cat's name into variable
                                 const name = data.name;
 
 
-                                // append all of the appointment info to the cards on appointments.html
                                 const appointmentCard = document.createElement("div")
 
                                 appointmentCard.classList.add("appointment")
@@ -109,7 +102,6 @@ const createUpcomingAppointmentCards = (array) => {
 
 
 
-// Clears user cookies and logs out user
 function handleLogout(){
     let c = document.cookie.split(";");
     for(let i in c){

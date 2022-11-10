@@ -1,11 +1,8 @@
-// cookie to read in order to get the logged in user's id
-// logout method will clear the cookie
 const cookieArr = document.cookie.split("=")
 const userId = cookieArr[1];
 
 
 
-// base url and header
 const catConfig = {
     baseUrl:'http://localhost:8080/api',
     headers: {
@@ -16,10 +13,9 @@ const catConfig = {
 
 
 
-// Pulls add cat form from add-appointment.html
 const addCatForm = document.getElementById('add-cat-form')
 
-// add cat
+
 const handleSubmit = async (e) =>{
     e.preventDefault()
 
@@ -52,7 +48,6 @@ addCatForm.addEventListener("submit", handleSubmit)
 
 
 
-// Clears user cookies and logs out user
 function handleLogout(){
     let c = document.cookie.split(";");
     for(let i in c){

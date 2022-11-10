@@ -19,8 +19,6 @@ public class UserDto implements Serializable {
 
 
     public UserDto(User user) {
-        // if the values received are NOT null (excluding user_id),
-        // they will be saved to the appropriate variable
         if (user.getId() != null) {
             this.id = user.getId();
         }

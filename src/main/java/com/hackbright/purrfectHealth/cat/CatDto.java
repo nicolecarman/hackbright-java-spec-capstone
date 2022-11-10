@@ -25,8 +25,6 @@ public class CatDto implements Serializable {
 
 
     public CatDto(Cat cat) {
-        // if the values received are NOT null (excluding cat_id),
-        // they will be saved to the appropriate variable
         if (cat.getId() != null) {
             this.id = cat.getId();
         }

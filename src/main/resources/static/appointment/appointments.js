@@ -1,11 +1,8 @@
-// cookie to read in order to get the logged in user's id
-// logout method will clear the cookie
 const cookieArr = document.cookie.split("=")
 const userId = cookieArr[1];
 
 
 
-// base url and header
 const appointmentConfig = {
     baseUrl:'http://localhost:8080/api',
     headers: {
@@ -16,14 +13,13 @@ const appointmentConfig = {
 
 
 
-// ADD APPOINTMENT BUTTON on appointments.html
 const addAppointmentBtn = document.getElementById('add-appointment-btn')
 
-// change mouseover colors
+
 addAppointmentBtn.addEventListener("mouseover", mouseover)
 addAppointmentBtn.addEventListener("mouseout", mouseout)
 
-// functions to change mouseover and mouseout colors
+
 function mouseover() {
     addAppointmentBtn.setAttribute("style", "background-color:#546A7B")
 }
@@ -32,7 +28,9 @@ function mouseout() {
     addAppointmentBtn.setAttribute("style", "background-color:#62929E")
 }
 
-// redirects user to add-appointment.html
+
+
+
 addAppointmentBtn.addEventListener("click", function() {
     document.location.href = 'add-appointment.html'
 })
@@ -40,7 +38,6 @@ addAppointmentBtn.addEventListener("click", function() {
 
 
 
-// GET ALL APPOINTMENTS for appointments.html
 const appointmentContainer = document.getElementById("appointment-container")
 
 async function findAllAppointments() {
@@ -70,7 +67,6 @@ const createAppointmentCards = (array) => {
         const catId = data.catId
 
 
-        // convert time from 24hr to 12hr
         const convertTime = (time) => {
             let hour = (time.split(':'))[0]
             let min = (time.split(':'))[1]
@@ -86,7 +82,6 @@ const createAppointmentCards = (array) => {
         const time = convertTime(prevTime)
 
 
-        // gets client's name using the client id we grabbed from the appointment
         async function getClientName(clientId) {
             await fetch(`${appointmentConfig.baseUrl}/clients/${clientId}`, {
                 method: "GET",
@@ -98,7 +93,6 @@ const createAppointmentCards = (array) => {
                      const lastName = data.lastName
 
 
-                        // gets cat's name using the cat id we grabbed from the appointment
                         async function getCatName(catId) {
                             await fetch(`${appointmentConfig.baseUrl}/cats/${catId}`, {
                                 method: "GET",
@@ -109,7 +103,6 @@ const createAppointmentCards = (array) => {
                                     const name = data.name
 
 
-                                    // append all of the appointment info to the cards on appointments.html
                                     let appointmentCard = document.createElement("div")
 
                                     appointmentCard.classList.add("appointment")
@@ -141,7 +134,7 @@ const createAppointmentCards = (array) => {
 
 
 
-// deletes an appointment
+
 async function handleDeleteAppointment(appointmentId){
     await fetch(`${appointmentConfig.baseUrl}/appointments/` + appointmentId, {
         method: "DELETE",
@@ -156,7 +149,7 @@ async function handleDeleteAppointment(appointmentId){
 
 
 
-// Clears user cookies and logs out user
+
 function handleLogout(){
     let c = document.cookie.split(";");
     for(let i in c){

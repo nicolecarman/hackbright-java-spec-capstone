@@ -15,7 +15,6 @@ public class ClientServiceImpl implements ClientService {
 
 
 
-    // add client
     @Override
     @Transactional
     public void addClient(ClientDto clientDto) {
@@ -25,8 +24,6 @@ public class ClientServiceImpl implements ClientService {
 
 
 
-
-    // GET all clients
     @Override
     public List<ClientDto> findAllClients(ClientDto clientDto) {
         List<Client> clientList = clientRepository.findAll();
@@ -35,7 +32,6 @@ public class ClientServiceImpl implements ClientService {
 
 
 
-    // finds client by id
     @Override
     public ClientDto findClientById(Long id) {
         Client client = clientRepository.findById(id).get();
@@ -47,7 +43,6 @@ public class ClientServiceImpl implements ClientService {
 
 
 
-    // delete an client
     @Override
     @Transactional
     public void deleteClientById(Long clientId) {

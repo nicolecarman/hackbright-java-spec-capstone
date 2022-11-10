@@ -19,7 +19,6 @@ public class CatController {
 
 
 
-    // Add cat
     @PostMapping("/add-cat")
     public void addCat(@RequestBody CatDto catDto) {
         catService.addCat(catDto);
@@ -27,7 +26,6 @@ public class CatController {
 
 
 
-    // GET all cats
     @GetMapping
     public List<CatDto> findAllCats(CatDto catDto) {
         return catService.findAllCats(catDto);
@@ -35,8 +33,6 @@ public class CatController {
 
 
 
-    // This finds all clients from client repository, adds them to a list, and returns them
-    // in the format created in client entities (getOptionFormat())
     @GetMapping(path="/options")
     public List<Map> htmlOptions(@RequestParam Long clientId) {
         List<Map> response = new LinkedList<>();
@@ -49,7 +45,6 @@ public class CatController {
 
 
 
-    // finds cat by id
     @GetMapping("/{catId}")
     public CatDto findById(@PathVariable Long catId) {
         return catService.findCat(catId);
@@ -57,7 +52,6 @@ public class CatController {
 
 
 
-    // delete a note
     @DeleteMapping("/{catId}")
     public void deleteCatById(@PathVariable Long catId) {
         catService.deleteCatById(catId);

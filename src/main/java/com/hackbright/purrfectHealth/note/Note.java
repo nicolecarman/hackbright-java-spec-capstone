@@ -23,22 +23,15 @@ public class Note {
 
 
 
+    @ManyToOne
+    @JsonBackReference
+    private User user;
 
-    // constructor that accepts the associated DTO as an argument
-    // contains conditional logic to help prevent null pointer exceptions
+
+
     public Note(NoteDto noteDto) {
         if (noteDto.getBody() != null) {
             this.body = noteDto.getBody();
         }
     }
-
-
-
-
-    // @ManyToOne handles the table relationship to Users by creating the association within Hibernate
-    // @JsonBackReference prevents infinite recursion when we deliver the resource up as JSON through
-    // our RESTful API endpoint
-    @ManyToOne
-    @JsonBackReference
-    private User user;
 }
