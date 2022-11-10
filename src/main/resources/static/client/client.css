@@ -51,7 +51,7 @@
     cursor: pointer;
 }
 .client-card-header {
-    margin-left: 228px;
+    margin-left: 175px;
 }
 .header-styling {
     padding-right: 60px;
@@ -64,9 +64,11 @@
 }
 .client-styling, .client-styling ul {
     display: inline-block;
+    font-size: 17px;
 }
 .client-styling li {
     width: 120px;
+    font-size: 17px;
 }
 .extra-padding {
     padding-right: 50px;
@@ -77,6 +79,7 @@
     cursor: pointer;
     right: 15%;
     position: absolute;
+    font-size: 17px;
 }
 .delete {
     color: #FF3333;

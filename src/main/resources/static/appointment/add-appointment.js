@@ -51,7 +51,6 @@ const handleSubmit = async (e) =>{
         .then(response => response.json())
 
         .then(data => {
-            console.log(data);
             window.location.pathname = '/appointment/appointments.html';
         })
 

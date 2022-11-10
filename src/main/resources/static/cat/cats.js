@@ -93,14 +93,12 @@ const createCatCards = (array) => {
                     catCard.innerHTML = `
                                     <div class="cat-card">
                                          <ul class="cat-styling">
-                                              <li style="font-size: 17px; width: 100px; padding-right:0">${name}</li>
-                                              <li style="font-size: 17px; width: 30px; padding-right: 15px">${age}</li>
-                                              <li style="font-size: 17px; width: 30px; padding-right: 15px">${gender}</li>
-                                              <li style="font-size: 17px; width: 100px; padding-right: 10px">${breed}</li>
-                                              <li style="font-size: 17px; width: 75px; padding-right: 10px;">${pattern}</li>
+                                              <li style="font-size: 17px; width: 125px">${name}, ${age}, ${gender}</li>
+                                              <li style="font-size: 17px; width: 100px">${breed}</li>
+                                              <li style="font-size: 17px; width: 100px">${pattern}</li>
                                               <li style="font-size: 17px; width: 100px;">${color}</li>
-                                              <li style="font-size: 17px; width: 30px; padding: 20px">${altered}</li>
-                                              <li style="font-size: 17px; width: 100px; padding-right: 10px">${vaccine}</li>
+                                              <li style="font-size: 17px; width: 75px">${altered}</li>
+                                              <li style="font-size: 17px; width: 100px">${vaccine}</li>
                                               <li style="font-size: 17px; width: 150px;">${firstName + " " + lastName}</li><br>
                                               <li style="font-size: 17px">Notes: ${notes}</li>
                                               <li><text class="delete" onclick="handleDeleteCat(${catId})">delete</text></li>

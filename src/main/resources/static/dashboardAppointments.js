@@ -76,7 +76,7 @@ const createUpcomingAppointmentCards = (array) => {
                             .then(data => {
 
                                 // save cat's name into variable
-                                const catName = data.name;
+                                const name = data.name;
 
 
                                 // append all of the appointment info to the cards on appointments.html
@@ -86,11 +86,9 @@ const createUpcomingAppointmentCards = (array) => {
                                 appointmentCard.innerHTML = `
                                 <div class="dashboard-appointment-card">
                                     <ul style="padding-left: 10px">
-                                        <li style="font-size: 16px; width: 80px;">${date}</li>
-                                        <li style="font-size: 16px; padding-right: 30px">${time}</li>
-                                        <li style="font-size: 16px; width: 110px;">${type}</li>
-                                        <li class="appointment-styling" style="padding-right: 25px">${firstName} ${lastName}
-                                        <li class="appointment-styling">${catName}</li>
+                                        <li style="font-size: 16px; width: 80px">${date}</li>
+                                        <li style="font-size: 16px; width: 80px">${time}</li>
+                                        <li style="font-size: 16px">${type} for ${name} (Parent: ${firstName} ${lastName})</li>
                                     </ul>
                                 </div>`
 

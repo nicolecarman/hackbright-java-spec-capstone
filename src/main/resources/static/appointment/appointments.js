@@ -116,11 +116,9 @@ const createAppointmentCards = (array) => {
                                     appointmentCard.innerHTML = `
                                     <div class="appointment-card">
                                          <ul class="appointment-styling">
-                                              <li class="appointment-styling">${date}</li>
-                                              <li class="appointment-styling">${time}</li>
-                                              <li class="appointment-styling" style="padding-right: 40px">${type}</li>
-                                              <li class="appointment-styling">${name}</li>
-                                              <li style="width: 140px; padding-right: 40px">${firstName + " " + lastName}</li>
+                                              <li style="width: 100px">${date}</li>
+                                              <li style="width: 100px">${time}</li>
+                                              <li style="width: 500px">${type} for ${name} (Parent: ${firstName} ${lastName})</li>
                                               <li><text class="delete" onclick="handleDeleteAppointment(${appointmentId})">delete</text></li>
                                          </ul>
                                     </div>`

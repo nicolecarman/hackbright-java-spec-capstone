@@ -81,12 +81,9 @@ const createClientCards = (array) => {
         clientCard.innerHTML = `
             <div class="client-card">
                  <ul>
-                      <li style="font-size: 17px">${lastName}, ${firstName}</li>
-                      <li style="padding-right: 40px; font-size: 17px">${address}</li>
-                      <li style="padding-right: 35px; font-size: 17px">${city}</li>
-                      <li style="25px; font-size: 17px">${state}</li>
-                      <li style="30px; font-size: 17px">${zipcode}</li>
-                      <li class="client-styling" style="font-size: 17px">${phone}</li>
+                      <li style="font-size: 17px; width: 130px">${lastName}, ${firstName}</li>
+                      <li style="font-size: 17px; width: 300px;">${address}, ${city}, ${state}, ${zipcode}</li>
+                      <li class="client-styling" style="font-size: 17px; width: 125px">${phone}</li>
                       <li class="client-styling" style="font-size: 17px">${email}</li>
                       <li class="delete" onclick="handleDeleteClient(${clientId})">delete</text></li>
                  </ul>
